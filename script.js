@@ -1,8 +1,7 @@
 let score = 0;
 function randomColor() {
   const color = `rgb(${Math.ceil((Math.random() * 255))} , ${Math.ceil(
-    (Math.random() * 255)
-  )} , ${Math.ceil((Math.random() * 255))})`;
+(Math.random() * 255))} , ${Math.ceil((Math.random() * 255))})`;
   return color;
 }
 
@@ -49,6 +48,7 @@ document.querySelectorAll('.ball').forEach((item) => {
       document.querySelector('#score').innerText = score;
       return (document.querySelector('#answer').innerText = 'Acertou!');
     }
-    return document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
+    document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
+    return;
   });
 });
