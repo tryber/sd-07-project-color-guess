@@ -48,6 +48,6 @@ document.querySelectorAll('.ball').forEach((item) => {
       document.querySelector('#score').innerText = score;
       return (document.querySelector('#answer').innerText = 'Acertou!');
     }
-    document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
+    return (document.querySelector('#answer').innerText = 'Errou! Tente novamente!');
   });
 });
