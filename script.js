@@ -2,9 +2,11 @@ const balls = document.getElementsByClassName('ball');
 const resetButton = document.querySelector('#reset-game');
 const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer')
-
+let score = document.getElementById('score')
+let scoreCounter = 0
 
 function generateColor() {
+  answer.innerText = 'Escolha uma cor'
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].style.backgroundColor = `rgb( ${Math.ceil(Math.random() * 255)} , ${Math.ceil(Math.random() * 255)} , ${Math.ceil(Math.random() * 255)})`;
     balls[index].classList.remove('guessed')
@@ -20,6 +22,8 @@ function generateColor() {
 function result(event) {
   if (event.target.classList.contains('guessed')) {
     answer.innerText = 'Acertou!';
+    scoreCounter += 3
+    score.innerText = `Placar: ${scoreCounter}`
   } else {
     answer.innerText = 'Errou! Tente novamente!';
   }
