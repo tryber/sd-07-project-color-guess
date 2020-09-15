@@ -9,13 +9,11 @@ scoreWindow.innerText = 0;
 
 function applyCollorTarget() {
   const colorLotery = Math.ceil(Math.random() * 6);
-  console.log(colorLotery);
   colorTarget.innerText = color[colorLotery - 1];
-  console.log(color[colorLotery-1]);
 }
 
 function changeColorBalls() {
-  for (let index = 0 ; index < balls.length; index += 1) {
+  for (let index = 0; index < balls.length; index += 1) {
     const red = Math.round(Math.random() * 255);
     const yellow = Math.round(Math.random() * 255);
     const green = Math.round(Math.random() * 255);
@@ -31,7 +29,7 @@ function changeColorBalls() {
 function verifyTargetColor(event) {
   const cssObj = window.getComputedStyle(event.target, null);
   const colorClicked = cssObj.getPropertyValue('background-color');
-  const targetColor = `rgb${colorTarget.innerText}`
+  const targetColor = `rgb${colorTarget.innerText}`;
 
   if (colorClicked === targetColor) {
     asnwerText.innerText = 'Acertou!';
