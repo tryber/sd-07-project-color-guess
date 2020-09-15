@@ -5,7 +5,6 @@ const answerTag = document.getElementById('answer');
 const scoreTag = document.getElementById('score');
 const rgbStringList = [];
 let userScore;
-const colorToGuess = generateRandomRgb();
 
 // checking if localStorage is empty
 if (localStorage.getItem('lastScore') === null) {
@@ -31,6 +30,8 @@ function shuffleArray(array) {
   }
   return array;
 }
+
+const colorToGuess = generateRandomRgb();
 
 function checkTheAnswer(event) {
   if (event.target.style.backgroundColor === (`rgb${colorToGuess}`)) {
