@@ -27,8 +27,9 @@ document.querySelectorAll('.ball').forEach((item) => {
 });
 randomBall();
 function randomBall() {
+    const randomNumber = Math.floor((Math.random() * 6)+1).toString();
   document.querySelectorAll('.ball').forEach((item) => {
-    if (item.classList[1] === Math.ceil(Math.random() * 6).toString()) {
+    if (item.classList[1] === randomNumber) {
       item.classList.add('premiado');
       const colorName = document.querySelector('.premiado').style
         .backgroundColor;
