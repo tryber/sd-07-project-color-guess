@@ -49,6 +49,5 @@ document.querySelectorAll('.ball').forEach((item) => {
       return (document.querySelector('#answer').innerText = 'Acertou!');
     }
     document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
-    return;
   });
 });
