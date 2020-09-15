@@ -1,0 +1,39 @@
+.ball {
+  border: 1px solid black;
+  border-radius: 50px;
+  display: inline-block;
+  height: 40px;
+  margin: auto;
+  width: 40px;
+}
+
+.color-game {
+  text-align: center;
+}
+
+.mensagem {
+  font-size: 30px;
+}
+
+.score , .span {
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.span {
+  display: block;
+  font-family: Grandstander, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin-top: 10px;
+}
+
+h1 {
+  text-align: center;
+}
