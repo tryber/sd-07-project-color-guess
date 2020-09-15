@@ -1,5 +1,6 @@
 
 let score=0;
+document.querySelector("#score").innerHTML = "Placar: "+score;
 window.onload = function(){
 
 randomColors()
@@ -39,7 +40,6 @@ function createEvents(){
                 document.querySelector("#answer").innerHTML = "Acertou!";
                 
                 score = score + 3;
-                console.log("score é " + score);
 
                 document.querySelector("#score").innerHTML = "Placar: "+score;
             }else {
@@ -50,4 +50,6 @@ function createEvents(){
 }
 // Reiniciar jogo
 let reset = document.querySelector("#reset-game");
-reset.addEventListener("click", randomColors);
+reset.addEventListener("click", function(){
+    document.querySelector("#answer").innerHTML = "Escolha uma cor"
+    randomColors});
