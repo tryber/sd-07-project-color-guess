@@ -9,24 +9,8 @@ const winIcrease = 3;
 const msgList = {
   begin: 'Escolha uma cor',
   win: 'Acertou!',
-  loose: 'Errou! Tente novamente!'
+  loose: 'Errou! Tente novamente!',
 };
-
-// assign function initGame to onload
-window.onload = initGame;
-
-// function that run after page on load
-function initGame() {
-  // generate color rgb
-  rgbColorText.innerText = generateRandomRGB();
-
-  // set up begin msg
-  answerText.innerText = msgList.begin;
-
-  // fill ball with a random color
-  fillBalls();
-}
-
 
 // function to generate random color RGB
 function generateRandomRGB() {
@@ -44,11 +28,13 @@ function generateRandomRGB() {
 function fillBalls() {
   // for each ball
   for (let index = 0; index < ballList.length; index += 1) {
-    ballList[index].style.backgroundColor = 'rgb' + generateRandomRGB();
+    const rgbColor = 'rgb' + generateRandomRGB();
+    ballList[index].style.backgroundColor = rgbColor;
   }
   // random choose one, and put the text color [0-5]
   const randomBall = Math.floor(Math.random() * 6);
-  ballList[randomBall].style.backgroundColor = 'rgb' + rgbColorText.innerText;
+  const rgbColor = 'rgb' + rgbColorText.innerText;
+  ballList[randomBall].style.backgroundColor = rgbColor;
 }
 
 // function hit the color ball
@@ -56,15 +42,28 @@ function hit(event) {
   // Get the ball that throw the event
   const ballClick = event.target;
   // Compare the color ballClick with text
-  if (ballClick.style.backgroundColor == 'rgb' + rgbColorText.innerText) {
+  const rgbColor = 'rgb' + rgbColorText.innerText;
+  if (ballClick.style.backgroundColor == rgbColor) {
     // Show the win message
     answerText.innerText = msgList.win;
     // increase points with 3
-    scoreText.innerText = '' + (parseInt(scoreText.innerText) + winIcrease);
+    scoreText.innerText = (parseInt(scoreText.innerText) + winIcrease).toString();
   } else {
     // Show the loose message
     answerText.innerText = msgList.loose;
   }
+}
+
+// function that run after page on load
+function initGame() {
+  // generate color rgb
+  rgbColorText.innerText = generateRandomRGB();
+
+  // set up begin msg
+  answerText.innerText = msgList.begin;
+
+  // fill ball with a random color
+  fillBalls();
 }
 
 // Assign click button to function initGame
@@ -74,3 +73,6 @@ buttonReset.addEventListener('click', initGame);
 for (let index = 0; index < ballList.length; index += 1) {
   ballList[index].addEventListener('click', hit);
 }
+
+// assign function initGame to onload
+window.onload = initGame;
