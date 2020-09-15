@@ -1,8 +1,8 @@
 let score = 0;
 function randomColor() {
-  const color = `rgb(${Math.ceil(Math.random() * 255)} , ${Math.ceil(
-    Math.random() * 255
-  )} , ${Math.ceil(Math.random() * 255)})`;
+  const color = `rgb(${Math.ceil((Math.random() * 255))} , ${Math.ceil(
+    (Math.random() * 255)
+  )} , ${Math.ceil((Math.random() * 255))})`;
   return color;
 }
 
@@ -13,7 +13,7 @@ function ballColor() {
   });
 }
 function randomBall() {
-  const randomNumber = Math.floor(Math.random() * 6 + 1).toString();
+  const randomNumber = Math.floor((Math.random() * 6) + 1).toString();
   document.querySelectorAll('.ball').forEach((item) => {
     if (item.classList[1] === randomNumber) {
       item.classList.add('premiado');
@@ -49,6 +49,6 @@ document.querySelectorAll('.ball').forEach((item) => {
       document.querySelector('#score').innerText = score;
       return (document.querySelector('#answer').innerText = 'Acertou!');
     }
-    document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
+    return document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
   });
 });
