@@ -4,7 +4,14 @@ const resetGameButton = document.getElementById('reset-game');
 const answerTag = document.getElementById('answer');
 const scoreTag = document.getElementById('score');
 let rgbStringList = [];
-let userScore = 0;
+let userScore;
+
+// checking if localStorage is empty
+if (localStorage.getItem('lastScore') === null) {
+    userScore = 0;
+} else {
+    userScore = parseInt(localStorage.getItem('lastScore'));
+}
 
 function generateRandomRgb() {
   const randomR = Math.round(Math.random() * 255);
@@ -57,4 +64,4 @@ resetGameButton.addEventListener('click', function() {
   location.reload();
 })
 
-scoreTag.innerText = `Pontos: ${localStorage.getItem('lastScore')}`;
+scoreTag.innerText = `Pontos: ${userScore}`;
