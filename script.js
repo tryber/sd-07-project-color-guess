@@ -78,7 +78,5 @@ function initGame() {
 // Assign click button to function initGame
 buttonReset.addEventListener('click', initGame);
 
-
-
 // assign function initGame to onload
 window.onload = initGame;
