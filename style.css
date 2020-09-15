@@ -1,0 +1,14 @@
+.title {
+  text-align: center;
+}
+
+.ball {
+  border-radius: 40px;
+  display: inline-block;
+  width: 65px;
+  height: 65px;
+}
+
+main {
+  text-align: center;
+}
