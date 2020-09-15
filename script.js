@@ -52,6 +52,10 @@ function hit(event) {
     // Show the loose message
     answerText.innerText = msgList.loose;
   }
+  // Remove hit function to all balls
+  for (let index = 0; index < ballList.length; index += 1) {
+    ballList[index].removeEventListener('click', hit);
+  }
 }
 
 // function that run after page on load
@@ -64,15 +68,17 @@ function initGame() {
 
   // fill ball with a random color
   fillBalls();
+
+  // Assign hit function to all balls
+  for (let index = 0; index < ballList.length; index += 1) {
+    ballList[index].addEventListener('click', hit);
+  }
 }
 
 // Assign click button to function initGame
 buttonReset.addEventListener('click', initGame);
 
-// Assign hit function to all balls
-for (let index = 0; index < ballList.length; index += 1) {
-  ballList[index].addEventListener('click', hit);
-}
+
 
 // assign function initGame to onload
 window.onload = initGame;
