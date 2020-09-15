@@ -5,16 +5,17 @@ const asnwerText = document.querySelector('#answer');
 const resetGameButton = document.querySelector('#reset-game');
 let color = [];
 let scoreCount = 0;
+scoreWindow.innerText = 0;
 
 function applyCollorTarget() {
   const colorLotery = Math.ceil(Math.random() * 6);
   console.log(colorLotery);
-  colorTarget.innerText = color[colorLotery-1];
+  colorTarget.innerText = color[colorLotery - 1];
   console.log(color[colorLotery-1]);
 }
 
 function changeColorBalls() {
-  for (let index = 0 ; index < balls.length; index += 1){
+  for (let index = 0 ; index < balls.length; index += 1) {
     const red = Math.round(Math.random() * 255);
     const yellow = Math.round(Math.random() * 255);
     const green = Math.round(Math.random() * 255);
@@ -29,11 +30,8 @@ function changeColorBalls() {
 
 function verifyTargetColor(event) {
   const cssObj = window.getComputedStyle(event.target, null);
-  console.log(cssObj);
   const colorClicked = cssObj.getPropertyValue('background-color');
-  console.log(colorClicked);
   const targetColor = `rgb${colorTarget.innerText}`
-  console.log(targetColor);
 
   if (colorClicked === targetColor) {
     asnwerText.innerText = 'Acertou!';
