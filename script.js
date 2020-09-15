@@ -1,8 +1,10 @@
 const randomRgbToGuess = document.getElementById('rgb-color');
 const ballsElementsList = document.getElementsByClassName('ball');
-const answerTag = document.getElementById('answer');
-let rgbStringList = [];
 const resetGameButton = document.getElementById('reset-game');
+const answerTag = document.getElementById('answer');
+const scoreTag = document.getElementById('score');
+let rgbStringList = [];
+let userScore = 0;
 
 function generateRandomRgb() {
   const randomR = Math.round(Math.random() * 255);
@@ -25,6 +27,10 @@ function shuffleArray(array) {
 function checkTheAnswer(event) {
   if (event.target.style.backgroundColor === ('rgb' + colorToGuess)) {
     answerTag.innerText = 'Acertou!';
+    userScore += 3;
+    localStorage.removeItem('lastScore');
+    localStorage.setItem('lastScore', userScore);
+    scoreTag.innerText = `Pontos: ${userScore}`;
   } else {
     answerTag.innerText = 'Errou! Tente novamente!';
   }
@@ -50,3 +56,5 @@ for (let j = 0; j < newRgbArray.length; j += 1) {
 resetGameButton.addEventListener('click', function() {
   location.reload();
 })
+
+scoreTag.innerText = `Pontos: ${localStorage.getItem('lastScore')}`;
