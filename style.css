@@ -1,4 +1,5 @@
 .title {
+  color: rgb(247, 0, 255);
   text-align: center;
 }
 
@@ -11,4 +12,91 @@
 
 main {
   text-align: center;
+}
+
+.score-content {
+  background-color: rgb(219, 207, 207);
+  border: 3px dashed black;
+  color: rgb(5, 88, 241);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  height: 120px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 30%;
+}
+
+#color-content {
+  height: 150px;
+  padding-top: 20px;
+}
+
+#ball1 {
+  position: relative;
+  top: 40px;
+}
+
+#ball2 {
+  position: relative;
+  top: 10px;
+}
+
+#ball5 {
+  position: relative;
+  top: 10px;
+}
+
+#ball6 {
+  position: relative;
+  top: 40px;
+}
+
+#answer {
+  color: rgb(0, 132, 255);
+  font-size: 35px;
+}
+
+.change-level {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2c80b8);
+    background-image: -moz-linear-gradient(top, #3498db, #2c80b8);
+    background-image: -ms-linear-gradient(top, #3498db, #2c80b8);
+    background-image: -o-linear-gradient(top, #3498db, #2c80b8);
+    background-image: linear-gradient(to bottom, #3498db, #2c80b8);
+    -webkit-border-radius: 36;
+    -moz-border-radius: 36;
+    border-radius: 36px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 11px 21px 11px 20px;
+    border: dotted #1f628d 6px;
+    text-decoration: none;
+}
+
+.reset {
+  background: #d934c6;
+  background-image: -webkit-linear-gradient(top, #d934c6, #952cb8);
+  background-image: -moz-linear-gradient(top, #d934c6, #952cb8);
+  background-image: -ms-linear-gradient(top, #d934c6, #952cb8);
+  background-image: -o-linear-gradient(top, #d934c6, #952cb8);
+  background-image: linear-gradient(to bottom, #d934c6, #952cb8);
+  -webkit-border-radius: 36;
+  -moz-border-radius: 36;
+  border-radius: 36px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 11px 21px 11px 20px;
+  border: dotted #1f628d 6px;
+  text-decoration: none;
+}
+
+footer {
+  font-size: 25px;
+  text-align: center;
+}
+
+footer img {
+  width: 80px;
 }
