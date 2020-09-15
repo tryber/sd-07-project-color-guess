@@ -28,12 +28,12 @@ function generateRandomRGB() {
 function fillBalls() {
   // for each ball
   for (let index = 0; index < ballList.length; index += 1) {
-    const rgbColor = 'rgb' + generateRandomRGB();
+    const rgbColor = str.concat('rgb', generateRandomRGB());
     ballList[index].style.backgroundColor = rgbColor;
   }
   // random choose one, and put the text color [0-5]
   const randomBall = Math.floor(Math.random() * 6);
-  const rgbColor = 'rgb' + rgbColorText.innerText;
+  const rgbColor = str.concat('rgb', rgbColorText.innerText);
   ballList[randomBall].style.backgroundColor = rgbColor;
 }
 
@@ -42,12 +42,12 @@ function hit(event) {
   // Get the ball that throw the event
   const ballClick = event.target;
   // Compare the color ballClick with text
-  const rgbColor = 'rgb' + rgbColorText.innerText;
-  if (ballClick.style.backgroundColor == rgbColor) {
+  const rgbColor = str.concat('rgb', rgbColorText.innerText);
+  if (ballClick.style.backgroundColor === rgbColor) {
     // Show the win message
     answerText.innerText = msgList.win;
     // increase points with 3
-    scoreText.innerText = (parseInt(scoreText.innerText) + winIcrease).toString();
+    scoreText.innerText = (parseInt(scoreText.innerText, 10) + winIcrease).toString();
   } else {
     // Show the loose message
     answerText.innerText = msgList.loose;
