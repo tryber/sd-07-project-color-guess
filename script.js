@@ -52,4 +52,5 @@ function createEvents(){
 let reset = document.querySelector("#reset-game");
 reset.addEventListener("click", function(){
     document.querySelector("#answer").innerHTML = "Escolha uma cor"
-    randomColors});
+    randomColors();
+});
