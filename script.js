@@ -1,34 +1,18 @@
 let score = 0;
-document.querySelector('#score').innerText = score;
-document.getElementById('answer').innerText = 'Escolha uma cor';
-document.querySelector('#reset-game').addEventListener('click', () => {
-  ballColor();
-  randomBall();
-  document.querySelector('#answer').innerText = 'Escolha uma cor';
-});
-
 function randomColor() {
-  const color = `rgb(${Math.ceil(Math.random() * 255)} , ${Math.ceil(
-    Math.random() * 255
-  )} , ${Math.ceil(Math.random() * 255)})`;
-  return color;
-}
-randomColor();
-
-function ballColor() {
-  document.querySelectorAll('.ball').forEach((item) => {
-    item.classList.remove('premiado');
-    item.style.backgroundColor = randomColor();
-  });
-}
-ballColor();
-document.querySelectorAll('.ball').forEach((item) => {
-  if (item.classList == 'selecionado') {
-    document.querySelector('p').innerText = item.style.backgroundColor;
+    const color = `rgb(${Math.ceil(Math.random() * 255)} , ${Math.ceil(
+      Math.random() * 255
+    )} , ${Math.ceil(Math.random() * 255)})`;
+    return color;
   }
-});
-randomBall();
-function randomBall() {
+
+  function ballColor() {
+    document.querySelectorAll('.ball').forEach((item) => {
+      item.classList.remove('premiado');
+      item.style.backgroundColor = randomColor();
+    });
+  }  
+  function randomBall() {
     const randomNumber = Math.floor((Math.random() * 6)+1).toString();
   document.querySelectorAll('.ball').forEach((item) => {
     if (item.classList[1] === randomNumber) {
@@ -39,6 +23,25 @@ function randomBall() {
     }
   });
 }
+
+document.querySelector('#score').innerText = score;
+document.getElementById('answer').innerText = 'Escolha uma cor';
+document.querySelector('#reset-game').addEventListener('click', () => {
+  ballColor();
+  randomBall();
+  document.querySelector('#answer').innerText = 'Escolha uma cor';
+});
+
+randomColor();
+ballColor();
+
+document.querySelectorAll('.ball').forEach((item) => {
+  if (item.classList == 'selecionado') {
+    document.querySelector('p').innerText = item.style.backgroundColor;
+  }
+});
+randomBall();
+
 document.querySelectorAll('.ball').forEach((item) => {
   item.addEventListener('click', () => {
     if (item.classList[2] === 'premiado') {
@@ -49,5 +52,3 @@ document.querySelectorAll('.ball').forEach((item) => {
     document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
   });
 });
-//
-// TODO: Criar função com if item backgroundcolor == p adiciona a classe resposta certa, depois criar outra função que pega a classe das bolas, se a classe for acertou imprimir a mensagem acertou e se errar a mensagem errou
