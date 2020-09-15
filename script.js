@@ -1,5 +1,6 @@
 const randomRgbToGuess = document.getElementById('rgb-color');
 const ballsElementsList = document.getElementsByClassName('ball');
+const answerTag = document.getElementById('answer');
 let rgbStringList = [];
 
 function generateRandomRgb() {
@@ -20,6 +21,14 @@ function shuffleArray(array) {
   return array;
 }
 
+function checkTheAnswer(event) {
+  if (event.target.style.backgroundColor === ('rgb' + colorToGuess)) {
+    answerTag.innerText = 'Acertou!';
+  } else {
+    answerTag.innerText = 'Errou! Tente novamente!';
+  }
+}
+
 // generate the right number and adds to the page and the list
 const colorToGuess = generateRandomRgb();
 rgbStringList.push(colorToGuess);
@@ -35,4 +44,5 @@ const newRgbArray = shuffleArray(rgbStringList);
 console.log(ballsElementsList[0]);
 for (let j = 0; j < newRgbArray.length; j += 1) {
   ballsElementsList[j].style.backgroundColor = "rgb" + newRgbArray[j];
+  ballsElementsList[j].addEventListener('click', checkTheAnswer);
 }
