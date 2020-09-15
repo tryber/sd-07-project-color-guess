@@ -1,3 +1,5 @@
+let score = 0;
+document.querySelector('#score').innerText = score;
 document.getElementById('answer').innerText = 'Escolha uma cor';
 document.querySelector('#reset-game').addEventListener('click', () => {
   ballColor();
@@ -40,6 +42,8 @@ function randomBall() {
 document.querySelectorAll('.ball').forEach((item) => {
   item.addEventListener('click', () => {
     if (item.classList[2] === 'premiado') {
+        score += 3;
+        document.querySelector('#score').innerText = score;
       return (document.querySelector('#answer').innerText = 'Acertou!');
     }
     document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
