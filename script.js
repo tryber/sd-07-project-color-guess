@@ -2,6 +2,7 @@ const randomRgbToGuess = document.getElementById('rgb-color');
 const ballsElementsList = document.getElementsByClassName('ball');
 const answerTag = document.getElementById('answer');
 let rgbStringList = [];
+const resetGameButton = document.getElementById('reset-game');
 
 function generateRandomRgb() {
   const randomR = Math.round(Math.random() * 255);
@@ -41,8 +42,11 @@ for (let i = 0; i < 5; i += 1) {
 
 // shuffling the array and add the rgb values to the circles
 const newRgbArray = shuffleArray(rgbStringList);
-console.log(ballsElementsList[0]);
 for (let j = 0; j < newRgbArray.length; j += 1) {
   ballsElementsList[j].style.backgroundColor = "rgb" + newRgbArray[j];
   ballsElementsList[j].addEventListener('click', checkTheAnswer);
 }
+
+resetGameButton.addEventListener('click', function() {
+  location.reload();
+})
