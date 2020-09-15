@@ -3,6 +3,7 @@ const resetButton = document.querySelector('#reset-game');
 const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer')
 let score = document.getElementById('score')
+score.innerText = 'Placar: ' + 0
 let scoreCounter = 0
 
 function generateColor() {
@@ -20,12 +21,16 @@ function generateColor() {
 }
 
 function result(event) {
-  if (event.target.classList.contains('guessed')) {
-    answer.innerText = 'Acertou!';
-    scoreCounter += 3
-    score.innerText = `Placar: ${scoreCounter}`
+  if ( answer.innerText !== 'Escolha uma cor') {
+    alert('What are you trying to do? Click the reset button.')
   } else {
-    answer.innerText = 'Errou! Tente novamente!';
+    if (event.target.classList.contains('guessed')) {
+      answer.innerText = 'Acertou!';
+      scoreCounter += 3
+      score.innerText = `Placar: ${scoreCounter}`
+    } else {
+      answer.innerText = 'Errou! Tente novamente!';
+    }
   }
 }
 
