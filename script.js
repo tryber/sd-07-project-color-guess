@@ -6,6 +6,13 @@ function rgbGenerator() {
   return rgb;
 }
 
+function choseColorAnswer(ballsArray) {
+  const sortedNum = Math.floor(Math.random() * 6);
+  const rgbColorElement = document.querySelector('#rgb-color');
+  const simpleString = ballsArray[sortedNum].style.backgroundColor.slice(3);
+  rgbColorElement.innerText = simpleString;
+}
+
 function colorGenerator() {
   const balls = document.querySelector('.balls-container').children;
   for (let index = 0; index < balls.length; index += 1) {
@@ -14,26 +21,28 @@ function colorGenerator() {
   choseColorAnswer(balls);
 }
 
-function choseColorAnswer(ballsArray) {
-  const sortedNum = Math.floor(Math.random() * 6);
-  const rgbColorElement = document.querySelector('#rgb-color');
-  const simpleString = ballsArray[sortedNum].style.backgroundColor.slice(3);
-  rgbColorElement.innerText = simpleString;
-}
-
 const ballsContainer = document.querySelector('.balls-container');
+let score = 0;
 
 ballsContainer.addEventListener('click', function (event) {
   const answerElement = document.querySelector('#answer');
-  if (event.target.className == 'ball') {
+  if (event.target.className === 'ball') {
     const rgbColorElement = document.querySelector('#rgb-color').innerText;
     if (event.target.style.backgroundColor.includes(rgbColorElement)) {
-      answerElement.innerText = 'Acertou!'
-    }
-    else {
-      answerElement.innerText = 'Errou! Tente novamente!'
+      answerElement.innerText = 'Acertou!';
+      score += 3;
+      document.querySelector('#score').innerText = `Sua pontuação: ${score}`;
+    } else {
+      answerElement.innerText = 'Errou! Tente novamente!';
     }
   }
-})
+});
+
+const buttonReset = document.querySelector('#reset-game');
+
+buttonReset.addEventListener('click', function () {
+  colorGenerator();
+  document.querySelector('#answer').innerText = 'Escolha uma cor';
+});
 
 window.onload = colorGenerator;
