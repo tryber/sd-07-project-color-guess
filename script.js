@@ -1,30 +1,37 @@
-function generateColor(number) {
-  const red = Math.floor(Math.random() * number);
-  const green = Math.floor(Math.random() * number);
-  const blue = Math.floor(Math.random() * number);
-  return `(${red}, ${green}, ${blue})`;
-}
-
-const writeRGB = document.querySelector('#rgb-color');
-const theMainColor = generateColor(255);
-writeRGB.innerHTML = theMainColor;
-
 const allBalls = document.querySelectorAll('.ball');
-function coloringBalls() {
-  allBalls[0].style.backgroundColor = `rgb${theMainColor}`;
-  for (let i = 1; i < 6; i += 1) {
-    allBalls[i].style.backgroundColor = `rgb${generateColor(255)}`;
+function generateColor() {
+  for (let i = 0; i < 6; i += 1) {
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
+    const rgbColor = `(${red}, ${green}, ${blue})`;
+    allBalls[i].style.backgroundColor = `rgb${rgbColor}`;
   }
 }
 
-window.onload = coloringBalls();
+window.onload = generateColor();
+
+  let writeRGB = allBalls[Math.floor(Math.random() * 6)].style.backgroundColor;
+  // para pegar uma bola qualquer entre 0 e 6
+  let rgbStringOff = writeRGB.slice(3);
+  // slice remove o rgb e colocar só os parênteses (remove e adiciona ao mesmo tempo)
+  // referência https://www.w3schools.com/JSREF/jsref_slice_string.asp
+  document.querySelector('#rgb-color').innerHTML = rgbStringOff;
 
 for (let i = 0; i < 6; i += 1) {
   allBalls[i].addEventListener('click', function () {
-    if (allBalls[i].style.backgroundColor === `rgb${theMainColor}`) {
+    if (allBalls[i].style.backgroundColor === `rgb${rgbStringOff}`) {
       document.querySelector('#answer').innerText = 'Acertou!';
     } else {
       document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
     }
   });
-};
+}
+
+document.querySelector('button').addEventListener('click', function () {
+  generateColor();
+  writeRGB = allBalls[Math.floor(Math.random() * 6)].style.backgroundColor;
+  rgbStringOff = writeRGB.slice(3);
+  document.querySelector('#rgb-color').innerHTML = rgbStringOff;
+  document.querySelector('#answer').innerText = 'Escolha uma cor';
+});
