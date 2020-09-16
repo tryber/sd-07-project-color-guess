@@ -56,3 +56,12 @@ main {
   color: rgb(0, 132, 255);
   font-size: 35px;
 }
+
+footer {
+  font-size: 20px;
+  text-align: center;
+}
+
+footer img {
+  width: 80px;
+}
