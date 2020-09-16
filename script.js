@@ -1,7 +1,9 @@
 window.onload = function () {
-  let ponto = localStorage.getItem("count");
-  let score = document.querySelector("#score");
-  score.innerHTML = "Placar: " + ponto;
+  if (localStorage.count != undefined) {
+    let ponto = localStorage.getItem("count");
+    let score = document.querySelector("#score");
+    score.innerHTML = "Placar: " + ponto;
+  }
 
   function geraTresRgb() {
     let r = [];
