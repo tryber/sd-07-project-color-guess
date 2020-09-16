@@ -33,9 +33,9 @@ window.onload = function () {
   function textoDeUmaBolaAleatoria() {
     let text = document.querySelector("#rgb-color");
     let bolas = document.querySelectorAll(".ball");
-
+    let number = Math.round(Math.random() * 5);
     let random = window
-      .getComputedStyle(bolas[Math.round(Math.random() * 6)], null)
+      .getComputedStyle(bolas[number], null)
       .getPropertyValue("background-color");
 
     text.innerHTML = tiraRgbTexto(random);
