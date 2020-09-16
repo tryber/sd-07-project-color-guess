@@ -1,5 +1,6 @@
 const OUTPUT_COLOR = document.querySelector(".output");
 const BALLS = document.querySelectorAll(".ball");
+let PONTUATION = 0;
 
 defineBallsColor();
 for (let i = 0; i < BALLS.length; i += 1) {
@@ -13,7 +14,7 @@ function randomColor() {
 }
 
 function defineBallsColor() {
-  document.querySelector(".resp").innerText = "Escoha uma cor";
+  document.querySelector(".resp").innerHTML = "Escoha uma cor";
 
   for (let index = 0; index < BALLS.length; index += 1) {
     BALLS[index].style.backgroundColor = `rgb(
@@ -32,8 +33,10 @@ function DefineRightOption(numberofBalls) {
 
 function isChoosenRight(event) {
   if (event.target.style.backgroundColor === OUTPUT_COLOR.innerText) {
-    document.querySelector(".resp").innerText = "Acertou!";
+    document.querySelector(".resp").innerHTML = "Acertou!";
+    PONTUATION += 3;
+    document.querySelector(".sco").innerHTML = PONTUATION;
   } else {
-    document.querySelector(".resp").innerText = "Errou! Tente novamente!";
+    document.querySelector(".resp").innerHTML = "Errou! Tente novamente!";
   }
 }
