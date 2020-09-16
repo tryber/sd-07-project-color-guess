@@ -19,22 +19,19 @@ let rgbStringOff = writeRGB.slice(3);
 document.querySelector('#rgb-color').innerHTML = rgbStringOff;
 
 let points = 0;
-function pontos() {
-  if (document.querySelector('#answer').innerText === 'Acertou!') {
+function game(event) { // event pega o evento que está acontecendo onde a função foi chamada
+  if (event.target.style.backgroundColor === `rgb${rgbStringOff}`) { 
+// event.target está buscando exatamente o allBalls[i] clicado como referência
+    document.querySelector('#answer').innerText = 'Acertou!';
     points += 3;
     document.querySelector('#score').innerHTML = `Placar: ${points}`;
+  } else {
+    document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
   }
-}
+};
 
 for (let i = 0; i < 6; i += 1) {
-  allBalls[i].addEventListener('click', function () {
-    if (allBalls[i].style.backgroundColor === `rgb${rgbStringOff}`) {
-      document.querySelector('#answer').innerText = 'Acertou!';
-      pontos();
-    } else {
-      document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
-    }
-  });
+  allBalls[i].addEventListener('click', game);
 }
 
 document.querySelector('button').addEventListener('click', function () {
