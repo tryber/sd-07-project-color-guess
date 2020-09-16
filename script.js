@@ -37,7 +37,7 @@ btn.addEventListener('click', rodada)
 function corDaVez(){
   const balls = document.querySelectorAll(".ball");
   const bolaDaVez = Math.floor(Math.random() * balls.length)
-  balls[bolaDaVez].style.backgroundColor = "black"
+  balls[bolaDaVez].style.backgroundColor = corAtual
   balls[bolaDaVez].removeEventListener('click', errou)
   balls[bolaDaVez].addEventListener('click', acertou)
 }
