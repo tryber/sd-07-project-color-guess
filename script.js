@@ -19,12 +19,18 @@ let rgbStringOff = writeRGB.slice(3);
 document.querySelector('#rgb-color').innerHTML = rgbStringOff;
 
 let points = 0;
+function pontos() {
+  if (document.querySelector('#answer').innerText === 'Acertou!') {
+    points += 3;
+    document.querySelector('#score').innerHTML = `Placar: ${points}`;
+  }
+}
+
 for (let i = 0; i < 6; i += 1) {
   allBalls[i].addEventListener('click', function () {
     if (allBalls[i].style.backgroundColor === `rgb${rgbStringOff}`) {
       document.querySelector('#answer').innerText = 'Acertou!';
-      points += 3;
-      document.querySelector('#score').innerHTML = `Placar: ${points}`;
+      pontos();
     } else {
       document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
     }
