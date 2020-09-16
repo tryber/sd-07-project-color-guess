@@ -32,3 +32,9 @@ body {
   margin-top: 40px;
   text-align: center;
 }
+
+.section-answer button{
+    height: 30px;
+    width: 150px;
+    font-weight: 600;
+}
