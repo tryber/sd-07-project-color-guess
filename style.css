@@ -1,8 +1,13 @@
 body {
-  margin: 30px;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 30px;
 }
 
 .header {
+  text-align: center;
+}
+
+.section-guess {
+  margin-top: 40px;
   text-align: center;
 }
