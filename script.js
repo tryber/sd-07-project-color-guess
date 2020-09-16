@@ -1,4 +1,4 @@
-
+let corAtual;
 
 // Cor Aleatória
 function randomRGB(){
@@ -26,11 +26,9 @@ function rodada(){
   corTitulo.innerHTML = corAtual
   corDaVez()
   resetaResposta()
-  console.log('oi')
 }
 // Btn Resetar o Jogo
 const btn = document.querySelector('#reset-game')
-console.log(btn)
 btn.addEventListener('click', rodada)
 
 // Escolhendo a Cor da Rodada
