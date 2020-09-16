@@ -1,3 +1,20 @@
+function rightColor() {
+  const answer = document.querySelector('#answer');
+
+  answer.innerText = 'Acertou!';
+}
+function wrongColor() {
+  const answer = document.querySelector('#answer');
+
+  answer.innerText = 'Errou! Tente novamente!';
+}
+function createRGB() {
+  const rgb = [];
+  for (let index = 0; index < 3; index += 1) {
+    rgb[index] = parseInt(255 * Math.random(), 10);
+  }
+  return rgb;
+}
 function createBalls(colors) {
   const balls = document.querySelector('#balls');
   const choosenColor = Math.floor(6 * Math.random());
@@ -16,34 +33,17 @@ function createBalls(colors) {
     balls.appendChild(ball);
   }
 }
-function createRGB() {
-  let rgb = [];
-  for (let index = 0; index < 3; index++) {
-    rgb[index] = parseInt(255 * Math.random());    
-  }
-  return rgb;
-}
 function createColors() {
   const colors = [];
-  
+ 
   for (let index = 0; index < 6; index += 1) {
-    colors[index] = createRGB();    
+    colors[index] = createRGB();
   }
   return colors;
 }
 function createRgbText(rgb) {
   const rgbText = document.querySelector('#rgb-color');
   rgbText.innerHTML = `(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
-}
-function rightColor() {
-  const answer = document.querySelector('#answer');
-
-  answer.innerText = 'Acertou!';
-}
-function wrongColor() {
-  const answer = document.querySelector('#answer');
-
-  answer.innerText = 'Errou! Tente novamente!';
 }
 window.onload = function () {
   createBalls(createColors());
