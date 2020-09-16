@@ -13,14 +13,18 @@ function randomColor() {
 }
 
 function defineBallsColor() {
+  document.querySelector(".resp").innerText = "Escoha uma cor";
+
   for (let index = 0; index < BALLS.length; index += 1) {
     BALLS[index].style.backgroundColor = `rgb(
     ${randomColor()},
     ${randomColor()},
     ${randomColor()})`;
   }
+  DefineRightOption(6);
+}
 
-  const numberofBalls = 6;
+function DefineRightOption(numberofBalls) {
   let randomNumber = Math.floor(Math.random() * numberofBalls);
   console.log(randomNumber);
   OUTPUT_COLOR.innerText = BALLS[randomNumber].style.backgroundColor;
