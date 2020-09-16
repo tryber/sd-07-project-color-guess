@@ -30,6 +30,7 @@ function pickColor(colors){
 function newGame(){
   let balls = document.querySelectorAll('.ball');
   let textColorToGuess = document.querySelector('#rgb-color');
+  let textHint = document.getElementById('answer');
   let colors = generateColors();
   let colorToGuess = '';
 
@@ -44,6 +45,8 @@ function newGame(){
   colorToGuess = pickColor(colors);
   textColorToGuess.innerHTML = colorToGuess;
   console.log(colorToGuess);
+
+  textHint.innerText = 'Escolha uma cor';
 }
 
 let btnReset = document.getElementById('reset-game');
