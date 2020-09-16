@@ -5,5 +5,16 @@ function generateColor(number) {
   return `(${red} , ${green} , ${blue})`;
 }
 
-const theMainColor = document.querySelector('#rgb-color');
-theMainColor.innerText = generateColor(255);
+const writeRGB = document.querySelector('#rgb-color');
+let theMainColor = generateColor(255);
+writeRGB.innerHTML = theMainColor;
+
+function coloringBalls() {
+  const allBalls = document.querySelectorAll('.ball');
+  allBalls[0].style.backgroundColor = `rgb${theMainColor}`
+  for (let i = 1; i < 6; i += 1) {
+    allBalls[i].style.backgroundColor = `rgb${generateColor(255)}`;
+  }
+}
+coloringBalls();
+
