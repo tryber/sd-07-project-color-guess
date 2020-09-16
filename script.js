@@ -62,5 +62,8 @@ document.addEventListener("click", function (event) {
 let button = document.querySelector("#reset-game");
 
 button.addEventListener("click", function () {
-  window.location.reload();
+  let answer = document.querySelector("#answer");
+  geraCorAleatoria();
+  textoDeUmaBolaAleatoria();
+  answer.innerHTML = "Escolha uma cor";
 });
