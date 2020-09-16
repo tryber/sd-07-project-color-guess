@@ -36,7 +36,8 @@ function newGame(){
   console.log(colors);
   for(let i=0; i < 6; i += 1){
     //console.log(i);
-    console.log(balls[i]);
+    balls[i].style.backgroundColor = colors[i];
+    console.log(balls[i].style);
     //console.log(colors[i]);
   }
 
