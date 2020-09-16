@@ -24,7 +24,7 @@ for (let i = 0; i < 6; i += 1) {
     if (allBalls[i].style.backgroundColor === `rgb${rgbStringOff}`) {
       document.querySelector('#answer').innerText = 'Acertou!';
       points += 3;
-      document.querySelector('#score').innerHTML = `Placar: ${points}`
+      document.querySelector('#score').innerHTML = `Placar: ${points}`;
     } else {
       document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
     }
