@@ -11,17 +11,20 @@ function generateColor() {
 
 window.onload = generateColor();
 
-  let writeRGB = allBalls[Math.floor(Math.random() * 6)].style.backgroundColor;
-  // para pegar uma bola qualquer entre 0 e 6
-  let rgbStringOff = writeRGB.slice(3);
-  // slice remove o rgb e colocar só os parênteses (remove e adiciona ao mesmo tempo)
-  // referência https://www.w3schools.com/JSREF/jsref_slice_string.asp
-  document.querySelector('#rgb-color').innerHTML = rgbStringOff;
+let writeRGB = allBalls[Math.floor(Math.random() * 6)].style.backgroundColor;
+// para pegar uma bola qualquer entre 0 e 6
+let rgbStringOff = writeRGB.slice(3);
+// slice remove o rgb e colocar só os parênteses (remove e adiciona ao mesmo tempo)
+// referência https://www.w3schools.com/JSREF/jsref_slice_string.asp
+document.querySelector('#rgb-color').innerHTML = rgbStringOff;
 
+let points = 0;
 for (let i = 0; i < 6; i += 1) {
   allBalls[i].addEventListener('click', function () {
     if (allBalls[i].style.backgroundColor === `rgb${rgbStringOff}`) {
       document.querySelector('#answer').innerText = 'Acertou!';
+      points += 3;
+      document.querySelector('#score').innerHTML = `Placar: ${points}`
     } else {
       document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
     }
