@@ -1,5 +1,4 @@
-const corTitulo = document.querySelector("#rgb-color");
-corTitulo.innerHTML = `${randomRGB()}`
+
 
 // Cor Aleatória
 function randomRGB(){
@@ -23,6 +22,7 @@ function preencherBolas() {
 function rodada(){
   preencherBolas()
   let corAtual = randomRGB()
+  const corTitulo = document.querySelector("#rgb-color");
   corTitulo.innerHTML = corAtual
   corDaVez()
   resetaResposta()
