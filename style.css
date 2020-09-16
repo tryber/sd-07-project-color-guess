@@ -17,6 +17,7 @@ main {
 .score-content {
   background-color: rgb(219, 207, 207);
   border: 3px dashed black;
+  border-radius: 20px;
   color: rgb(5, 88, 241);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 25px;
