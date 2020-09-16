@@ -2,11 +2,11 @@ const circles = document.querySelectorAll('.ball');
 let score = 0;
 function button(event) {
   if (event.target.style.backgroundColor === document.querySelector('#rgb-color').innerText) {
-    document.querySelector('#answer').innerText = "Acertou!";
+    document.querySelector('#answer').innerText = 'Acertou!';
     score += 3;
     document.querySelector('#score').innerText = score;
   } else {
-    document.querySelector('#answer').innerText = "Errou! Tente novamente!";
+    document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
   }
 }
 function roll() {
