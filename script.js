@@ -3,6 +3,7 @@ const balls = document.querySelectorAll('.ball');
 const answer = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 let colorToGuessString = '';
+let score = document.getElementById('score');
 
 function getRandom() {
   return Math.floor(Math.random() * 255);
@@ -18,15 +19,19 @@ function resetColors() {
       balls[index].style.backgroundColor = `rgb(${getRandom()} , ${getRandom()} , ${getRandom()})`;
     }
   }
+  answer.innerHTML = 'Escolha uma cor';
 }
 
 function createClickEventOnBall() {
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].addEventListener('click', function (event) {
       if (event.target.style.backgroundColor === colorToGuessString) {
-        answer.innerHTML = 'Acertou!'
+        answer.innerHTML = 'Acertou!';
+        previousScore = parseInt(score.innerHTML);
+        score.innerHTML = previousScore + 3;
       } else {
-        answer.innerHTML = 'Errou! Tente novamente!'
+        answer.innerHTML = 'Errou! Tente novamente!';
+        score.innerHTML = 0;
       }
     });
   }
@@ -34,11 +39,9 @@ function createClickEventOnBall() {
 
 function initialize() {
   resetColors();
-  answer.innerHTML = 'Escolha uma cor';
   createClickEventOnBall();
+  score.innerHTML = 0;
 }
-
-
 
 resetButton.addEventListener('click', resetColors);
 
