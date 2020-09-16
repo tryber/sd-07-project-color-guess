@@ -1,5 +1,5 @@
-var score = 0;
-var waitReset = false;
+let score = 0;
+let waitReset = false;
 function rightColor() {
   const answer = document.querySelector('#answer');
   const scoreText = document.querySelector('#score');
