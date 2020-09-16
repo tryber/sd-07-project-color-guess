@@ -1,4 +1,6 @@
-let corAtual;
+const corTitulo = document.querySelector("#rgb-color");
+corTitulo.innerHTML = `${randomRGB()}`
+preencherBolas()
 
 // Cor Aleatória
 function randomRGB(){
@@ -18,43 +20,46 @@ function preencherBolas() {
   }
 }
 
+function teste() {console.log("teste")}
 // Rodada
-function rodada(){
-  preencherBolas()
-  let corAtual = randomRGB()
-  const corTitulo = document.querySelector("#rgb-color");
-  corTitulo.innerHTML = corAtual
-  corDaVez()
-  resetaResposta()
-}
-// Btn Resetar o Jogo
-const btn = document.querySelector('#reset-game')
-btn.addEventListener('click', rodada)
 
-// Escolhendo a Cor da Rodada
-function corDaVez(){
+rodada()
+function rodada(){
+  removerEventos()
+  let corAtual = randomRGB()
+  corTitulo.innerHTML = corAtual
   const balls = document.querySelectorAll(".ball");
   const bolaDaVez = Math.floor(Math.random() * balls.length)
   balls[bolaDaVez].style.backgroundColor = corAtual
   balls[bolaDaVez].removeEventListener('click', errou)
   balls[bolaDaVez].addEventListener('click', acertou)
 }
-function resetaResposta(){
-  const resposta = document.querySelector('#answer')
-  resposta.innerHTML = "Escolha uma cor"
+
+
+function removerEventos(){
+  const balls = document.querySelectorAll(".ball");
+  for (let i =0; i< balls.length; i += 1)
+  balls[i].removeEventListener('click', acertou)
 }
+
 // Placar 
-let score = 0
+let placar = 0
 
 function acertou(){
   const resposta = document.querySelector('#answer')
   resposta.innerHTML = "Acertou!"
-  score += 3
-  document.querySelector("#score").innerHTML = score
+  placar += 3
+  document.querySelector("#score").innerHTML = placar
 }
 function errou(){
   const resposta = document.querySelector('#answer')
   resposta.innerHTML = "Errou! Tente novamente!"
 }
 
-window.onload = rodada
+let btn = document.querySelector('#reset-game')
+btn.addEventListener('click', reset)
+
+function reset(){
+  preencherBolas()
+  rodada()
+}
