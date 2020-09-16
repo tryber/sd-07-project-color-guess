@@ -46,13 +46,13 @@ function resetaResposta(){
   resposta.innerHTML = "Escolha uma cor"
 }
 // Placar 
-let placar = 0
+let score = 0
 
 function acertou(){
   const resposta = document.querySelector('#answer')
   resposta.innerHTML = "Acertou!"
-  placar += 3
-  document.querySelector("#score").innerHTML = placar
+  score += 3
+  document.querySelector("#score").innerHTML = score
 }
 function errou(){
   const resposta = document.querySelector('#answer')
