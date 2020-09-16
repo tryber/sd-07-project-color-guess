@@ -1,5 +1,4 @@
 
-
 function getNumber(number){
   return Math.floor(Math.random() * Math.floor(number));
 }
@@ -8,7 +7,7 @@ function generateColors(){
   let colors = [];
 
   for(let i = 0; i < 6; i += 1){
-    let color = `rgb(${getNumber(255)} , ${getNumber(255)}, ${getNumber(255)})`;
+    let color = `rgb(${getNumber(255)}, ${getNumber(255)}, ${getNumber(255)})`;
 
     colors.push(color);
   }
@@ -27,6 +26,21 @@ function pickColor(colors){
   return colorToGuess;
 }
 
+function ballClicked(e){
+  let textHint = document.getElementById('answer');
+  let colorToGuess = document.getElementById('rgb-color');
+  let colorClicked;
+
+  colorClicked = e.srcElement.style.backgroundColor.split('rgb');
+
+  if(colorClicked[1] === colorToGuess.innerText){
+    textHint.innerText = 'Acertou!';
+  }else{
+    textHint.innerText = 'Errou! Tente novamente!';
+  }
+
+}
+
 function newGame(){
   let balls = document.querySelectorAll('.ball');
   let textColorToGuess = document.querySelector('#rgb-color');
@@ -34,23 +48,23 @@ function newGame(){
   let colors = generateColors();
   let colorToGuess = '';
 
-  console.log(colors);
   for(let i=0; i < 6; i += 1){
-    //console.log(i);
     balls[i].style.backgroundColor = colors[i];
-    console.log(balls[i].style);
-    //console.log(colors[i]);
   }
 
   colorToGuess = pickColor(colors);
   textColorToGuess.innerHTML = colorToGuess;
-  console.log(colorToGuess);
 
   textHint.innerText = 'Escolha uma cor';
 }
 
 let btnReset = document.getElementById('reset-game');
+let ballsForEvent = document.getElementsByClassName('ball');
 
 btnReset.addEventListener('click', newGame);
+
+for(let i=0; i<ballsForEvent.length; i += 1){
+  ballsForEvent[i].addEventListener('click', ballClicked);
+}
 
 window.onload = newGame;
