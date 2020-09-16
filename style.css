@@ -25,3 +25,10 @@ body {
   height: 70px;
   width: 70px;
 }
+
+.section-answer {
+  font-size: x-large;
+  font-weight: 600;
+  margin-top: 40px;
+  text-align: center;
+}
