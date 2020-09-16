@@ -1,4 +1,8 @@
 window.onload = function () {
+  let ponto = localStorage.getItem("count");
+  let score = document.querySelector("#score");
+  score.innerHTML = "Placar: " + ponto;
+
   function geraTresRgb() {
     let r = [];
 
@@ -53,6 +57,7 @@ window.onload = function () {
       if (pickedColor == text.innerText) {
         answer.innerHTML = "Acertou!";
         count += 3;
+        atualizaPlacar(count);
       } else {
         answer.innerHTML = "Errou! Tente novamente!";
       }
@@ -72,7 +77,9 @@ window.onload = function () {
 
   //--------------------------------------------------------------------
 
-  // function atualizaPlacar() {
-
-  // }
+  function atualizaPlacar(count) {
+    localStorage.setItem("count", count);
+    let score = document.querySelector("#score");
+    score.innerHTML = "Placar: " + count;
+  }
 };
