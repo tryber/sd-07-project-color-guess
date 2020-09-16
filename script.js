@@ -4,6 +4,7 @@ const answer = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 let colorToGuessString = '';
 let score = document.getElementById('score');
+score.innerHTML = 0;
 
 function getRandom() {
   return Math.floor(Math.random() * 255);
@@ -24,11 +25,12 @@ function resetColors() {
 
 function createClickEventOnBall() {
   for (let index = 0; index < balls.length; index += 1) {
-    balls[index].addEventListener('click', function (event) {
+    balls[index].addEventListener('click', function createEvent (event) {
       if (event.target.style.backgroundColor === colorToGuessString) {
         answer.innerHTML = 'Acertou!';
         previousScore = parseInt(score.innerHTML);
         score.innerHTML = previousScore + 3;
+        previousScore = 0;
       } else {
         answer.innerHTML = 'Errou! Tente novamente!';
         score.innerHTML = 0;
@@ -37,10 +39,11 @@ function createClickEventOnBall() {
   }
 }
 
+
+
 function initialize() {
   resetColors();
   createClickEventOnBall();
-  score.innerHTML = 0;
 }
 
 resetButton.addEventListener('click', resetColors);
