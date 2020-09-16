@@ -37,6 +37,8 @@ function textoDeUmaBolaAleatoria() {
 }
 textoDeUmaBolaAleatoria();
 
+//-----------------------------------------------------------------------
+
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("ball")) {
     let answer = document.querySelector("#answer");
@@ -46,6 +48,7 @@ document.addEventListener("click", function (event) {
       .getComputedStyle(event.target, null)
       .getPropertyValue("background-color");
     pickedColor = tiraRgbTexto(pickedColor);
+
     if (pickedColor == text.innerText) {
       answer.innerHTML = "Acertou!";
     } else {
