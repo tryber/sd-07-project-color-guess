@@ -38,7 +38,7 @@ function textoDeUmaBolaAleatoria() {
 textoDeUmaBolaAleatoria();
 
 //-----------------------------------------------------------------------
-
+let count = 0;
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("ball")) {
     let answer = document.querySelector("#answer");
@@ -51,6 +51,7 @@ document.addEventListener("click", function (event) {
 
     if (pickedColor == text.innerText) {
       answer.innerHTML = "Acertou!";
+      count += 3;
     } else {
       answer.innerHTML = "Errou! Tente novamente!";
     }
@@ -67,3 +68,9 @@ button.addEventListener("click", function () {
   textoDeUmaBolaAleatoria();
   answer.innerHTML = "Escolha uma cor";
 });
+
+//--------------------------------------------------------------------
+
+// function atualizaPlacar() {
+
+// }
