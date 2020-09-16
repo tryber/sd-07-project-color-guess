@@ -1,6 +1,5 @@
 const corTitulo = document.querySelector("#rgb-color");
 corTitulo.innerHTML = `${randomRGB()}`
-preencherBolas()
 
 // Cor Aleatória
 function randomRGB(){
@@ -20,25 +19,32 @@ function preencherBolas() {
   }
 }
 
-function teste() {console.log("teste")}
 // Rodada
-
-rodada()
 function rodada(){
+  preencherBolas()
   let corAtual = randomRGB()
   corTitulo.innerHTML = corAtual
+  corDaVez()
+  resetaResposta()
+  console.log('oi')
+}
+// Btn Resetar o Jogo
+const btn = document.querySelector('#reset-game')
+console.log(btn)
+btn.addEventListener('click', rodada)
+
+// Escolhendo a Cor da Rodada
+function corDaVez(){
   const balls = document.querySelectorAll(".ball");
   const bolaDaVez = Math.floor(Math.random() * balls.length)
-  balls[bolaDaVez].style.backgroundColor = corAtual
+  balls[bolaDaVez].style.backgroundColor = "black"
   balls[bolaDaVez].removeEventListener('click', errou)
   balls[bolaDaVez].addEventListener('click', acertou)
 }
-
-// Btn Mudar Dificuldade
-// Btn Resetar o Jogo
-// Cor atual
-
-
+function resetaResposta(){
+  const resposta = document.querySelector('#answer')
+  resposta.innerHTML = "Escolha uma cor"
+}
 // Placar 
 let placar = 0
 
@@ -52,3 +58,5 @@ function errou(){
   const resposta = document.querySelector('#answer')
   resposta.innerHTML = "Errou! Tente novamente!"
 }
+
+window.onload = rodada
