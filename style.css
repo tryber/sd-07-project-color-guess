@@ -1,0 +1,58 @@
+.title {
+  color: rgb(247, 0, 255);
+  text-align: center;
+}
+
+.ball {
+  border-radius: 40px;
+  display: inline-block;
+  height: 65px;
+  width: 65px;
+}
+
+main {
+  text-align: center;
+}
+
+.score-content {
+  background-color: rgb(219, 207, 207);
+  border: 3px dashed black;
+  border-radius: 20px;
+  color: rgb(5, 88, 241);
+  font-family: sans-serif;
+  font-size: 25px;
+  height: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.color-content {
+  height: 150px;
+  padding-top: 20px;
+}
+
+.ball1 {
+  position: relative;
+  top: 40px;
+}
+
+.ball2 {
+  position: relative;
+  top: 10px;
+}
+
+.ball5 {
+  position: relative;
+  top: 10px;
+}
+
+.ball6 {
+  position: relative;
+  top: 40px;
+}
+
+.answer {
+  color: rgb(0, 132, 255);
+  font-size: 35px;
+}
