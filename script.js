@@ -60,6 +60,8 @@ let btn = document.querySelector('#reset-game')
 btn.addEventListener('click', reset)
 
 function reset(){
+  const resposta = document.querySelector('#answer')
+  resposta.innerHTML = "Escolha uma cor"
   preencherBolas()
   rodada()
 }
