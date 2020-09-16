@@ -20,7 +20,7 @@ document.querySelector('#rgb-color').innerHTML = rgbStringOff;
 
 let points = 0;
 function game(event) { // event pega o evento que está acontecendo onde a função foi chamada
-  if (event.target.style.backgroundColor === `rgb${rgbStringOff}`) { 
+  if (event.target.style.backgroundColor === `rgb${rgbStringOff}`) {
 // event.target está buscando exatamente o allBalls[i] clicado como referência
     document.querySelector('#answer').innerText = 'Acertou!';
     points += 3;
@@ -28,7 +28,7 @@ function game(event) { // event pega o evento que está acontecendo onde a funç
   } else {
     document.querySelector('#answer').innerText = 'Errou! Tente novamente!';
   }
-};
+}
 
 for (let i = 0; i < 6; i += 1) {
   allBalls[i].addEventListener('click', game);
