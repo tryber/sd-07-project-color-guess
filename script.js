@@ -29,12 +29,14 @@ function pickColor(colors){
 function ballClicked(e){
   let textHint = document.getElementById('answer');
   let colorToGuess = document.getElementById('rgb-color');
+  let score = document.getElementById('score');
   let colorClicked;
 
   colorClicked = e.srcElement.style.backgroundColor.split('rgb');
 
   if(colorClicked[1] === colorToGuess.innerText){
     textHint.innerText = 'Acertou!';
+    score.innerText = parseInt(score.innerText) + 3;
   }else{
     textHint.innerText = 'Errou! Tente novamente!';
   }

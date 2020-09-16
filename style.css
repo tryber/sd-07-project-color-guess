@@ -1,4 +1,8 @@
 
+.points p{
+  display: inline-block;
+}
+
 .ball{
   display: inline-block;
   width: 3em;
