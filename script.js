@@ -1,12 +1,24 @@
+var score = 0;
+var waitReset = false;
 function rightColor() {
   const answer = document.querySelector('#answer');
+  const scoreText = document.querySelector('#score');
+  const hitPoints = 3;
 
-  answer.innerText = 'Acertou!';
+  if (waitReset === false) {
+    answer.innerText = 'Acertou!';
+    score += hitPoints;
+    scoreText.innerHTML = `${score}`;
+    waitReset = true;
+  }
 }
 function wrongColor() {
   const answer = document.querySelector('#answer');
 
-  answer.innerText = 'Errou! Tente novamente!';
+  if (waitReset === false) {
+    answer.innerText = 'Errou! Tente novamente!';
+    waitReset = true;
+  }
 }
 function createRGB() {
   const rgb = [];
@@ -15,10 +27,15 @@ function createRGB() {
   }
   return rgb;
 }
+function createRgbText(rgb) {
+  const rgbText = document.querySelector('#rgb-color');
+  rgbText.innerHTML = `(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+}
 function createBalls(colors) {
   const balls = document.querySelector('#balls');
   const choosenColor = Math.floor(6 * Math.random());
 
+  balls.innerHTML = '';
   for (let index = 0; index < 6; index += 1) {
     const ball = document.createElement('div');
     const rgb = colors[index];
@@ -35,16 +52,21 @@ function createBalls(colors) {
 }
 function createColors() {
   const colors = [];
- 
+
   for (let index = 0; index < 6; index += 1) {
     colors[index] = createRGB();
   }
   return colors;
 }
-function createRgbText(rgb) {
-  const rgbText = document.querySelector('#rgb-color');
-  rgbText.innerHTML = `(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+function resetGame() {
+  const answer = document.querySelector('#answer');
+  answer.innerHTML = 'Escolha uma cor';
+  createBalls(createColors());
+  waitReset = false;
 }
 window.onload = function () {
-  createBalls(createColors());
+  const resetGameButton = document.querySelector('#reset-game');
+
+  resetGame();
+  resetGameButton.addEventListener('click', resetGame);
 };
