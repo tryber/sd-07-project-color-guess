@@ -1,7 +1,9 @@
 let buttonreset = document.getElementById("reset-game");
+let score = document.getElementById("score");
+let points = 0;
+score.innerText = "Placar: " + points;
 buttonreset.addEventListener("click",reset);
 reset();
-
 function reset() {
     document.getElementById("answer").innerText = "Escolha uma cor";
     let colorrandom = "("+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+")";
@@ -18,9 +20,11 @@ function reset() {
         balls[i].addEventListener("click", function(event) {
             if (event.target == balls[random]) {
                 document.getElementById("answer").innerText = "Acertou!";
+                points += 3;
+                score.innerText = "Placar: " + points;
             } else {
                 document.getElementById("answer").innerText = "Errou! Tente novamente!";
             }
-        })
+        });
     }
 }
