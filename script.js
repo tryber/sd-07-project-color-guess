@@ -10,6 +10,7 @@ window.onload = function() {
     let labelMessage = document.querySelector("#answer");
     let resetButton = document.querySelector("#reset-game");
     let labelScore = document.querySelector("#score");
+    let initialValue = 0;
 
     generateRGB();
 
@@ -25,7 +26,7 @@ window.onload = function() {
     openMessage();
 
     function openMessage() {
-        fontRGB.innerText = "Escolha uma cor";
+/*         fontRGB.innerText = "Escolha uma cor"; */
         labelMessage.innerText = "Escolha uma cor";
         labelScore.innerText = 0;
         getRGB();
@@ -76,19 +77,27 @@ window.onload = function() {
 
     function callMessage() {
         let setColor = event.target;
-        let initialValue = 0;
         if (setColor.classList.contains("selected")) {
-            labelMessage.innerText = "Acertou!";
-            initialValue = 3;
+            initialValue += 3;
             console.log(initialValue);
             labelScore.innerText = initialValue;
             localStorage.setItem("ScorePoints", labelScore.innerHTML);
+            startAgain();
         } else {
             labelMessage.innerText = "Errou! Tente novamente!";
         }
     }
 
     resetButton.addEventListener("click", callBaseFunctions);
+
+    function startAgain() {
+        labelMessage.innerText = "Acertou!";
+        generateRGB();
+        getRGB()
+        if (localStorage.getItem("ScorePoints") !== "undefined") {
+            labelScore.innerHTML = localStorage.getItem("ScorePoints");
+        }
+    }
 
     function callBaseFunctions() {
         generateRGB();
