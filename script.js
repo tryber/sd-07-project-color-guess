@@ -12,7 +12,7 @@ answer.textContent = 'Escolha uma cor';
 function resposta(ballClick){
     let propBackgroundColor = window.getComputedStyle(ballClick.target).getPropertyValue('background-color');
     console.log(propBackgroundColor);
-    if (propBackgroundColor = rgbColor.textContent){
+    if (propBackgroundColor === `rgb${rgbColor.textContent}`){
         answer.textContent = 'Acertou!';
     } else {
         answer.textContent = 'Errou! Tente novamente!';
