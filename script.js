@@ -21,14 +21,7 @@ window.onload = function() {
         color5.style.backgroundColor = "rgb(" + (Math.floor(Math.random()* 255) + 1) + "," + (Math.floor(Math.random()* 255) + 1) + "," + (Math.floor(Math.random()* 255) + 1) + ")";
         color6.style.backgroundColor = "rgb(" + (Math.floor(Math.random()* 255) + 1) + "," + (Math.floor(Math.random()* 255) + 1) + "," + (Math.floor(Math.random()* 255) + 1) + ")";
     } 
-    
-    color1.addEventListener("click", callMessage);
-    color2.addEventListener("click", callMessage);
-    color3.addEventListener("click", callMessage);
-    color4.addEventListener("click", callMessage);
-    color5.addEventListener("click", callMessage);
-    color6.addEventListener("click", callMessage);
-    
+      
     openMessage();
 
     function openMessage() {
@@ -46,26 +39,40 @@ window.onload = function() {
         color5.classList.remove("selected");
         color6.classList.remove("selected");
         let selectColor = Math.floor(Math.random()* 6) + 1;
-        if (selectColor == 1) {
-            color1.classList.add("selected");
-            fontRGB.innerText = color1.style.backgroundColor;
-        } else if (selectColor == 2) {
-            color2.classList.add("selected");
-            fontRGB.innerText = color2.style.backgroundColor;
-        } else if (selectColor == 3) {
-            color3.classList.add("selected");
-            fontRGB.innerText = color3.style.backgroundColor;
-        } else if (selectColor == 4) {
-            color4.classList.add("selected");
-            fontRGB.innerText = color4.style.backgroundColor;
-        } else if (selectColor == 5) {
-            color5.classList.add("selected");
-            fontRGB.innerText = color5.style.backgroundColor;
-        } else {
-            color6.classList.add("selected");
-            fontRGB.innerText = color6.style.backgroundColor;
+        switch (selectColor) {
+        case 1: 
+        color1.classList.add("selected");
+        fontRGB.innerText = color1.style.backgroundColor;
+        /* callBaseFunctions(); */
+        case 2: 
+        color2.classList.add("selected");
+        fontRGB.innerText = color2.style.backgroundColor;
+        /* callBaseFunctions(); */
+        case 3:
+        color3.classList.add("selected");
+        fontRGB.innerText = color3.style.backgroundColor;
+        /* callBaseFunctions(); */
+        case 4:
+        color4.classList.add("selected");
+        fontRGB.innerText = color4.style.backgroundColor;
+        /* callBaseFunctions() */
+        case 5:
+        color5.classList.add("selected");
+        fontRGB.innerText = color5.style.backgroundColor;
+        /* callBaseFunctions() */
+        case 6:
+        color6.classList.add("selected");
+        fontRGB.innerText = color6.style.backgroundColor;
+        /* callBaseFunctions() */
         }
     }
+
+    color1.addEventListener("click", callMessage);
+    color2.addEventListener("click", callMessage);
+    color3.addEventListener("click", callMessage);
+    color4.addEventListener("click", callMessage);
+    color5.addEventListener("click", callMessage);
+    color6.addEventListener("click", callMessage);
 
     function callMessage() {
         let setColor = event.target;
@@ -75,6 +82,7 @@ window.onload = function() {
             initialValue = 3;
             console.log(initialValue);
             labelScore.innerText = initialValue;
+            localStorage.setItem("ScorePoints", labelScore.innerHTML);
         } else {
             labelMessage.innerText = "Errou! Tente novamente!";
         }
@@ -85,6 +93,9 @@ window.onload = function() {
     function callBaseFunctions() {
         generateRGB();
         getRGB();
+        labelMessage.innerText = "Escolha uma cor";
+        if (localStorage.getItem("ScorePoints") !== "undefined") {
+            labelScore.innerHTML = localStorage.getItem("ScorePoints");
+        }
     }
-
 }
