@@ -14,7 +14,7 @@ function randomColor() {
 }
 
 function defineBallsColor() {
-  document.querySelector(".resp").innerHTML = "Escoha uma cor";
+  document.querySelector(".resp").innerHTML = "Escolha uma cor";
 
   for (let index = 0; index < BALLS.length; index += 1) {
     BALLS[index].style.backgroundColor = `rgb(
