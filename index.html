@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto color guess | Pablo Pesanha</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header>
@@ -12,6 +12,8 @@
     </header>
     <div id="main-container">
       <span id="rgb-color"></span>
+      <br />
+      <span class="points">Pontuação: <span class="score">0</span></span>
       <div class="color-selector">
         <div class="ball"></div>
         <div class="ball"></div>
@@ -19,8 +21,10 @@
         <div class="ball"></div>
         <div class="ball"></div>
         <div class="ball"></div>
+        <h2 id="answer">Escolha uma cor</h2>
       </div>
-      <span class="pontuacao">Pontuação</span>
     </div>
+    <button id="reset-game">Resetar jogo</button>
+    <script src="./script.js"></script>
   </body>
 </html>
