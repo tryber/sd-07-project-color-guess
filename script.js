@@ -62,7 +62,7 @@ reset.addEventListener('click', () => {
 
   balls = document.querySelectorAll('.ball');
   answer = document.querySelector('#answer');
-  score = document.querySelector('.score');
+  score = document.querySelector('#score');
   rgbColor = document.querySelector('#rgb-color');
   main = document.getElementById('main-container');
 
