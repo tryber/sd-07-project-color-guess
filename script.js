@@ -1,16 +1,40 @@
-const x = Math.floor(Math.random() * 256);
-const y = Math.floor(Math.random() * 256);
-const z = Math.floor(Math.random() * 256);
-const rgbGenerator = `rgb (${x}, ${y}, ${z})`;
+function rgbGenerator() {
+  let x = Math.floor(Math.random() * 256);
+  let y = Math.round(Math.random() * 256);
+  let z = Math.round(Math.random() * 256);
+  return `(${x}, ${y}, ${z})`;
+} 
 
-const rgbText = document.querySelector('#rgb-color');
-rgbText.innerHTML = rgbGenerator; 
+
+var rgbText = document.querySelector('#rgb-color');
+rgbText.innerHTML = rgbGenerator(); 
 
 
-const balls = document.querySelectorAll('.ball');
-const displayText = document.querySelector('#answer');
-if ( balls[i].style.backgroundColor == rgbGenerator) {
-  displayText.innerHTML = 'Acertou!';
-} else {
-  displayText.innerHTML = 'Errou! Tente novamente!';
+// https://github.com/tryber/sd-04-block5-project-color-guess/pull/17/files
+function rgbSelectBall() {
+  const rgbBall = document.querySelectorAll('.ball');
+  rgbBall[Math.round(Math.random() * 5)].style.backgroundColor = `rgb${rgbText.innerHTML}`;
 }
+
+
+function rgbBalls() {
+  const rgbBall = document.querySelectorAll('.ball');
+  rgbBall.forEach((ball) => {
+    ball.style.backgroundColor = `rgb${rgbGenerator()}`;
+  });
+  rgbSelectBall();
+}
+rgbBalls();
+// -------------------------------------------------------------
+
+/*function check () {
+  let displayText = document.querySelector('#answer');
+  for (let index = 0; index < rgbBall.length; index += 1) {
+    if (rgbBall[index].style.backgroundColor == rgbGenerator()) {
+      displayText.innerHTML = 'Acertou!';
+    } else {
+      displayText.innerHTML = 'Errou! Tente novamente!';
+    }
+  }
+}*/
+
