@@ -7,18 +7,14 @@ function geraCores() {
 }
 
 const ball = document.querySelectorAll('.ball');
-for (let index = 0; index < ball.length; index += 1) {
-  ball[index].style.backgroundColor = geraCores();
-}
-
 const rgbColor = document.querySelector('#rgb-color');
-const igualcores = ball[Math.round(Math.random() * (ball.length - 1))].style.backgroundColor;
-rgbColor.innerText = igualcores;
-
 const placar = document.querySelector('#score');
 let acerto = 0;
 
 for (let index = 0; index < ball.length; index += 1) {
+  ball[index].style.backgroundColor = geraCores();
+  const igualcores = ball[Math.round(Math.random() * (ball.length - 1))].style.backgroundColor;
+  rgbColor.innerText = igualcores;
   ball[index].addEventListener('click', function () {
     if (rgbColor.innerText === ball[index].style.backgroundColor) {
       document.querySelector('#answer').innerText = 'Acertou! Novas cores!';
@@ -39,7 +35,7 @@ botaoJogar.addEventListener('click', () => {
   for (let index = 0; index < ball.length; index += 1) {
     ball[index].style.backgroundColor = geraCores();
   }
-  let igualcores = ball[Math.round(Math.random() * (ball.length - 1))].style.backgroundColor;
+  const igualcores = ball[Math.round(Math.random() * (ball.length - 1))].style.backgroundColor;
   rgbColor.innerText = igualcores;
   document.querySelector('#answer').innerText = 'Escolha uma cor';
 });
