@@ -59,6 +59,7 @@ main {
 
 p {
   display: inline-block;
+  text-transform: uppercase;
 }
 
 button {
@@ -69,9 +70,11 @@ button {
   cursor: pointer;
   display: inline-block;
   font-family: 'Press Start 2P', cursive;
-  height: 20px;
+  height: 30px;
+  text-transform: uppercase;
   transition: 0.4s;
-  width: 150px;
+  vertical-align: middle;
+  width: 160px;
 }
 
 button:hover {
