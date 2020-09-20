@@ -39,18 +39,26 @@ main {
 }
 
 .container-of-color {
+  align-content: initial;
   background-color: var(--azul);
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 3fr);
+  grid-template-rows: repeat(2, 2fr);
+  justify-content: initial;
+  margin: auto;
   text-align: center;
+  padding: 20px 0;
 }
 
 .ball {
   border: 2px dashed black;
   border-radius: 100%;
   cursor: pointer;
-  display: inline-block;
-  height: 80px;
+  height: 150px;
   margin: 30px 50px;
-  width: 80px;
+  width: 150px;
+  margin: auto;
 }
 
 .ball:hover {
