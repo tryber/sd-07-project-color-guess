@@ -1,0 +1,8 @@
+.ball {
+  background-color: rgb(131, 146, 163);
+  border-radius: 50%;
+  display: inline-block;
+  height: 50px;
+  margin: 5px;
+  width: 50px;
+}
