@@ -28,6 +28,7 @@ function rgbColorBalls() {
 // https://github.com/tryber/sd-04-block5-project-color-guess/pull/17/files
 function checkColor() {
    let balls = document.querySelectorAll('.ball');
+   score.innerHTML='0';
    balls.forEach((ball) => {
      ball.addEventListener('click', () => {
        if (ball.style.backgroundColor === `rgb${rgbText.innerHTML}`) {
