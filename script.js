@@ -11,13 +11,6 @@ const rgbColor = document.querySelector('#rgb-color');
 const placar = document.querySelector('#score');
 let acerto = 0;
 
-for (let index = 0; index < ball.length; index += 1) {
-    ball[index].style.backgroundColor = geraCores();
-    const igualcores = ball[Math.round(Math.random() * (ball.length - 1))].style.backgroundColor;
-    rgbColor.innerText = igualcores;
-    ball[index].addEventListener('click', placarAcertos); 
-  }
-
 function placarAcertos(event) {
   if (rgbColor.innerText === event.target.style.backgroundColor) {
     document.querySelector('#answer').innerText = 'Acertou! Novas cores!';
@@ -30,7 +23,14 @@ function placarAcertos(event) {
         placar.innerText = `Placar: ${acerto}`;
       }
   }
-};
+}
+
+for (let index = 0; index < ball.length; index += 1) {
+  ball[index].style.backgroundColor = geraCores();
+  const igualcores = ball[Math.round(Math.random() * (ball.length - 1))].style.backgroundColor;
+  rgbColor.innerText = igualcores;
+  ball[index].addEventListener('click', placarAcertos);
+}
 
 const botaoJogar = document.querySelector('#reset-game');
 botaoJogar.addEventListener('click', () => {
