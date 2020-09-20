@@ -1,7 +1,8 @@
 const rgbText = document.querySelector('#rgb-color');
 const answer = document.querySelector('#answer');
 const score = document.querySelector('#score');
-var count = 0;
+let count = 0;
+
 
 function rgbGenerator() {
   const x = Math.floor(Math.random() * 256);
@@ -43,12 +44,12 @@ function checkColor() {
 }
 
 
-document.querySelector('#reset-game').addEventListener('click', resetGame);
 function resetGame() {
   rgbInputText();
   rgbColorBalls();
   answer.innerHTML = 'Escolha uma cor';
 }
+document.querySelector('#reset-game').addEventListener('click', resetGame);
 
 
 rgbInputText();
