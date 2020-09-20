@@ -1,5 +1,12 @@
-section {
-    margin: auto;
+.header {
+  font-size: 25px;
+  text-align: center;
+}
+
+.rgb-score {
+  font-size: 20px;
+  line-height: 10px;
+  text-align: center;
 }
 
 .ball {
@@ -9,4 +16,20 @@ section {
   height: 100px;
   margin-left: 15px;
   width: 100px;  
+}
+
+.ball-class {
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+.escolha {
+  font-size: 30px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.reset button {
+  font-size: 25px;
+  margin-left: 550px;
 }
