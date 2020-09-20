@@ -1,0 +1,80 @@
+:root {
+  --vermelho: rgb(254 , 74 , 73);
+  --amarelo: rgb(254 , 215 , 102);
+  --azul: rgb(0 , 159 , 183);
+  --cinza: rgb(230 , 230 , 234);
+  --branco: rgb(244 , 244 , 248);
+}
+
+body {
+  background-color: var(--cinza);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+header {
+  background-color: var(--vermelho);
+  color: var(--amarelo);
+  font-family: Righteous, cursive;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 30px 0;
+  width: 100%;
+}
+
+h1 {
+  margin-left: 30px;
+}
+
+main {
+  background-color: var(--branco);
+  padding: 10px 0;
+}
+
+.text {
+  color: var(--vermelho);
+  font-family: Turret Road, cursive;
+  text-align: center;
+}
+
+.container-of-color {
+  background-color: var(--azul);
+  text-align: center;
+}
+
+.ball {
+  border: 2px dashed black;
+  border-radius: 100%;
+  cursor: pointer;
+  display: inline-block;
+  height: 80px;
+  margin: 30px 50px;
+  width: 80px;
+}
+
+.ball:hover {
+  border: 2px solid black;
+}
+
+p {
+  display: inline-block;
+}
+
+button {
+  background-color: var(--azul);
+  border: none;
+  border-radius: 3px;
+  color: var(--vermelho);
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  height: 20px;
+  transition: 0.4s;
+  width: 150px;
+}
+
+button:hover {
+  color: var(--amarelo);
+  transform: scale(0.9, 0.9);
+}
