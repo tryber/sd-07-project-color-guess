@@ -1,7 +1,7 @@
 const rgbText = document.querySelector('#rgb-color');
 const answer = document.querySelector('#answer');
 const score = document.querySelector('#score');
-const count = 0;
+var count = 0;
 
 function rgbGenerator() {
   const x = Math.floor(Math.random() * 256);
@@ -34,15 +34,16 @@ function checkColor() {
       if (ball.style.backgroundColor === `rgb${rgbText.innerHTML}`) {
         answer.innerHTML = 'Acertou!';
         count += 3;
-        score.innerHTML=(count);
-        } else {
-          answer.innerHTML = 'Errou! Tente novamente!';
-        }
-      });
+        score.innerHTML = (count);
+      } else {
+        answer.innerHTML = 'Errou! Tente novamente!';
+      }
     });
+  });
 }
 
 
+document.querySelector('#reset-game').addEventListener('click', resetGame);
 function resetGame() {
   rgbInputText();
   rgbColorBalls();
