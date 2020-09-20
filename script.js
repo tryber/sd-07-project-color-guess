@@ -6,17 +6,22 @@ const answer = document.querySelector('#answer');
 const reset = document.querySelector('#reset-game');
 let currentDifficulty = 'easy';
 let position;
-let score;
+let score = 0;
 
 for (let index = 0; index < allBalls.length; index += 1) {
   allBalls[index].addEventListener('click', function () {
     let referenceColor = allBalls[index].style.backgroundColor;
+    let printScore = document.querySelector('#score');
     if (`rgb${rgbColorPosition.innerText}` == referenceColor) {
       answer.innerText = 'Acertou!'
       score += 3;
+      printScore.innerText = score;
     } else {
       answer.innerText = 'Errou! Tente novamente!'
-      score -= 1;
+      if(score > 0) {
+        score -= 1;
+        printScore.innerText = score;
+      }
     }
   });
 }
@@ -59,6 +64,7 @@ function getColor() {
 }
 
 function makeBoard(currentDifficulty) {
+  answer.innerText = 'Escolha uma cor';
   if (currentDifficulty == 'easy') {
     boardOfBalls.style.gridTemplateRows = 'repeat(2, 2fr)';
   } else {

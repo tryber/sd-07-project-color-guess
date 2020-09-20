@@ -89,3 +89,18 @@ button:hover {
   color: var(--amarelo);
   transform: scale(0.9, 0.9);
 }
+
+.div-score {
+  background-color: var(--vermelho);
+  border-radius: 100%;
+  font-family: Turret Road, cursive;
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+.div-score p {
+  color: var(--amarelo);
+}
