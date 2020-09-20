@@ -15,7 +15,7 @@ for (let index = 0; index < ball.length; index += 1) {
   ball[index].style.backgroundColor = geraCores();
   const igualcores = ball[Math.round(Math.random() * (ball.length - 1))].style.backgroundColor;
   rgbColor.innerText = igualcores;
-  ball[index].addEventListener('click', function () {
+  ball[index].addEventListener('click', (event) => {
     if (rgbColor.innerText === ball[index].style.backgroundColor) {
       document.querySelector('#answer').innerText = 'Acertou! Novas cores!';
       acerto += 3;
