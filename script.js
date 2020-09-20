@@ -17,11 +17,11 @@ function placarAcertos(event) {
     acerto += 3;
     placar.innerText = `Placar: ${acerto}`;
   } else {
-      document.querySelector('#answer').innerText = 'Errou! Tente novamente';
-      if (acerto > 0) {
-        acerto -= 1;
-        placar.innerText = `Placar: ${acerto}`;
-      }
+    document.querySelector('#answer').innerText = 'Errou! Tente novamente';
+    if (acerto > 0) {
+      acerto -= 1;
+      placar.innerText = `Placar: ${acerto}`;
+    }
   }
 }
 
