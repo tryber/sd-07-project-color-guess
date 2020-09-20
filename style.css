@@ -1,0 +1,12 @@
+section {
+    margin: auto;
+}
+
+.ball {
+  border: solid 1px black;
+  border-radius: 50%;
+  display: inline-block;
+  height: 100px;
+  margin-left: 15px;
+  width: 100px;  
+}
