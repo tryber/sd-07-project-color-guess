@@ -1,6 +1,7 @@
 const balls = document.querySelectorAll('.ball');
 const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
+let points = 0
 
 function generationRandomColorRGB() {
   const maxNumberRGB = 256;
@@ -20,12 +21,19 @@ function backgroundColorCicle() {
   generationRgbBackgroundColorCicle();
 }
 
+function score(ballBackgroundColor) {
+  if (rgbColor.innerText === ballBackgroundColor) {
+    answer.innerText = 'Acertou!';
+    points += 3;
+    const score = document.getElementById('score');
+    score.innerText = `Placar ${points}`
+  } else answer.innerText = 'Errou! Tente novamente!';
+}
+
 document.querySelector('.div-container').addEventListener('click', function (event) {
   const ballBackgroundColor = event.target.style.backgroundColor;
   if (ballBackgroundColor === '') return alert('clique na bola');
-  if (rgbColor.innerText === ballBackgroundColor) {
-    answer.innerText = 'Acertou!';
-  } else answer.innerText = 'Errou! Tente novamente!';
+  score(ballBackgroundColor);
   return true;
 });
 
