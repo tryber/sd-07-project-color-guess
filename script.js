@@ -1,9 +1,9 @@
 // Criando o score do jogo
 let points = 0;
-const scoreTag = document.getElementById('score');
+const score = document.getElementById('score');
 
 // Imprimindo o score
- Tag.innerHTML = points;
+score.innerHTML = points;
 
 // Sorteia as cores
 const answer = document.getElementById('answer');
@@ -97,7 +97,7 @@ function init() {
 init();
 
 container.addEventListener('click', function (event) {
-  if (answer.innerText === 'Escolha uma cor') {
+  // if (answer.innerText === 'Escolha uma cor') {
     const selected = event.target;
 
     // Adiciona a borda de seleção
@@ -107,12 +107,12 @@ container.addEventListener('click', function (event) {
 
     if (indexSelected === numberRaffledBall) {
       points += 3;
-      scoreTag.innerText = points;
+      score.innerText = points;
       answer.innerText = 'Acertou!';
     } else {
       answer.innerText = 'Errou! Tente novamente';
     }
-  }
+  //}
 });
 
 const resetGame = document.getElementById('reset-game');
