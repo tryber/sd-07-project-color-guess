@@ -1,3 +1,20 @@
+// Criando o score do jogo
+const sum = document.getElementById('sum');
+let score = 0;
+const textScore = document.getElementById('score');
+
+// Sorteia as cores
+let answer = document.getElementById('answer');
+let color = []; // assortedColors();
+
+// Sorteia a cor escolhida entre as 6 cores
+let numberRaffledBall = -1; // o intervalo de sorteio é de [0, 5] rndRGB(5);
+
+// imprime na tela o RGB sorteado
+let rgbColor = document.getElementById('rgb-color');
+
+const container = document.querySelector('.container');
+
 // Função que gera um número pseudo aleatório de 0 até N
 function rndRGB(N) {
   return (Math.floor(parseInt(Math.random() * N, 10)));
@@ -10,7 +27,7 @@ function randRGB() {
 
 function assortedColors() {
   // Sorteia as Cores
-  let colors = [];
+  const colors = [];
   const numberOfColors = 6;
   colors.push(randRGB());
 
@@ -25,18 +42,18 @@ function assortedColors() {
           continue;
         }
       }
-      colors.push(newColor)
-      thereAreEqualColors = false
-    } while (thereAreEqualColors )
+      colors.push(newColor);
+      thereAreEqualColors = false;
+    } while (thereAreEqualColors);
   }
-  return (colors)
+  return (colors);
 }
 
 // Atribui as cores sorteadas para as divs .ball
 function colorsToDivs(colors) {
-  const childrenContainer=document.querySelector('.container').children;
+  const childrenContainer = document.querySelector('.container').children;
   for (let i = 0; i < childrenContainer.length; i += 1) {
-    childrenContainer[i].style.backgroundColor =  colors[i];
+    childrenContainer[i].style.backgroundColor = colors[i];
   }
 }
 
@@ -46,7 +63,7 @@ function returnNumberOfChild(child) {
   //        https://stackoverflow.com/questions/11761881/
   //        javascript-dom-find-element-index-in-container
   // O slice.call converte um HTMLCollection em um array
-  let arrayAllChildren = Array.prototype.slice.call(child.parentNode.children);
+  const arrayAllChildren = Array.prototype.slice.call(child.parentNode.children);
 
   // retorna o número do filho dentro array
   return (arrayAllChildren.indexOf(child));
@@ -73,41 +90,23 @@ function init() {
 
   // imprime na tela o RGB sorteado
   rgbColor.innerText = color[numberRaffledBall];
-
   console.log(numberRaffledBall);
 }
-
-// Criando o score do jogo
-let sum = document.getElementById('sum');
-let score = 0;
-let textScore = document.getElementById('score');
-
-// Sorteia as cores
-let answer = document.getElementById('answer');
-let color = []; // assortedColors();
-
-// Sorteia a cor escolhida entre as 6 cores
-let numberRaffledBall = -1; // o intervalo de sorteio é de [0, 5] rndRGB(5);
-
-// imprime na tela o RGB sorteado
-let rgbColor = document.getElementById('rgb-color');
-
-let container = document.querySelector('.container');
 
 init();
 
 container.addEventListener('click', function (event) {
   if (answer.innerText === 'Escolha uma cor') {
-    let selected = event.target
+    const selected = event.target
 
     // Adiciona a borda de seleção
-    selected.classList.add('selected')
+    selected.classList.add('selected');
 
-    let indexSelected = returnNumberOfChild(selected)
+    const indexSelected = returnNumberOfChild(selected);
 
-    if (indexSelected === numberRaffledBall) {
+    if (indexSelected == numberRaffledBall) {
       score += 3;
-      textScore.innerText = `Placar: ${score}`
+      textScore.innerText = score;
       answer.innerText = 'Acertou!';
     } else {
       answer.innerText = 'Errou! Tente novamente';
@@ -115,8 +114,8 @@ container.addEventListener('click', function (event) {
   }
 });
 
-let resetGame = document.getElementById('reset-game');
+const resetGame = document.getElementById('reset-game');
 
 resetGame.addEventListener('click', function () {
   init();
-})
+});
