@@ -1,5 +1,6 @@
 const balls = document.querySelectorAll('.ball');
 const rgbColor = document.getElementById('rgb-color');
+const answer = document.getElementById('answer');
 
 function generationRandomColorRGB() {
   const maxNumberRGB = 256;
@@ -12,18 +13,25 @@ function generationRgbBackgroundColorCicle() {
   rgbColor.innerText = randomElement.style.backgroundColor;
 }
 
-window.onload = function () {
+function backgroundColorCicle() {
   balls.forEach((ball) => {
     ball.style.backgroundColor = generationRandomColorRGB();
   });
-  generationRgbBackgroundColorCicle()
+  generationRgbBackgroundColorCicle();
 }
+
 document.querySelector('.div-container').addEventListener('click', function (event) {
   const ballBackgroundColor = event.target.style.backgroundColor;
-  const answer = document.getElementById('answer')
-  if (ballBackgroundColor === '') alert('clique na bola')
+  if (ballBackgroundColor === '') return alert('clique na bola');
   if (rgbColor.innerText === ballBackgroundColor) {
     answer.innerText = 'Acertou!';
   } else answer.innerText = 'Errou! Tente novamente!';
+  return true;
 });
 
+document.getElementById('reset-game').addEventListener('click', function () {
+  backgroundColorCicle();
+  answer.innerText = 'Escolha uma cor';
+});
+
+window.onload = backgroundColorCicle();
