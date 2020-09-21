@@ -1,7 +1,9 @@
 // Criando o score do jogo
 let points = 0;
-const score = document.getElementById('score');
+const scoreTag = document.getElementById('score');
 
+// Imprimindo o score
+ Tag.innerHTML = points;
 
 // Sorteia as cores
 const answer = document.getElementById('answer');
@@ -70,8 +72,6 @@ function returnNumberOfChild(child) {
 }
 
 function init() {
-  // Imprimindo o score
-  score.innerHTML = points;
   // Escreve o texto
   answer.innerText = 'Escolha uma cor';
 
@@ -107,7 +107,7 @@ container.addEventListener('click', function (event) {
 
     if (indexSelected === numberRaffledBall) {
       points += 3;
-      score.innerText = points;
+      scoreTag.innerText = points;
       answer.innerText = 'Acertou!';
     } else {
       answer.innerText = 'Errou! Tente novamente';
@@ -117,6 +117,4 @@ container.addEventListener('click', function (event) {
 
 const resetGame = document.getElementById('reset-game');
 
-resetGame.addEventListener('click', function () {
-  init();
-});
+resetGame.addEventListener('click', init);
