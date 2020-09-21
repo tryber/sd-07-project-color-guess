@@ -1,7 +1,13 @@
 .ball {
   background-color: blueviolet;
   border-radius: 100%;
+  display: inline-block;
+  margin-left: 8px;
   height: 80px;
   width: 80px;
-  display: inline-block;
+
+}
+
+.div-container {
+  width: 552px;
 }
