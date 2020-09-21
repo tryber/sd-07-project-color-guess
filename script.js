@@ -10,15 +10,15 @@ let score = 0;
 
 for (let index = 0; index < allBalls.length; index += 1) {
   allBalls[index].addEventListener('click', function () {
-    let referenceColor = allBalls[index].style.backgroundColor;
-    let printScore = document.querySelector('#score');
-    if (`rgb${rgbColorPosition.innerText}` == referenceColor) {
-      answer.innerText = 'Acertou!'
+    const referenceColor = allBalls[index].style.backgroundColor;
+    const printScore = document.querySelector('#score');
+    if (`rgb${rgbColorPosition.innerText}` === referenceColor) {
+      answer.innerText = 'Acertou!';
       score += 3;
       printScore.innerText = score;
     } else {
-      answer.innerText = 'Errou! Tente novamente!'
-      if(score > 0) {
+      answer.innerText = 'Errou! Tente novamente!';
+      if (score > 0) {
         score -= 1;
         printScore.innerText = score;
       }
@@ -34,7 +34,7 @@ function sortEasyPosition() {
 }
 
 function sortHardPosition() {
-  position = Math.floor(Math.random() * 12)
+  position = Math.floor(Math.random() * 12);
   if (position > 11) {
     position = 11;
   }
@@ -42,7 +42,7 @@ function sortHardPosition() {
 
 function getPosition() {
   allBalls = document.querySelectorAll('.ball');
-  if (currentDifficulty == 'easy') {
+  if (currentDifficulty === 'easy') {
     sortEasyPosition();
   } else {
     sortHardPosition();
@@ -65,10 +65,10 @@ function getColor() {
 
 function makeBoard(currentDifficulty) {
   answer.innerText = 'Escolha uma cor';
-  if (currentDifficulty == 'easy') {
+  if (currentDifficulty === 'easy') {
     boardOfBalls.style.gridTemplateRows = 'repeat(2, 2fr)';
   } else {
-    boardOfBalls.style.gridTemplateRows = 'repeate(4, 4fr)'
+    boardOfBalls.style.gridTemplateRows = 'repeate(4, 4fr)';
   }
   allBalls = document.querySelectorAll('.ball');
   getColor();
@@ -77,12 +77,10 @@ function makeBoard(currentDifficulty) {
 reset.addEventListener('click', makeBoard);
 
 difficulty.addEventListener('click', function () {
-
   boardOfBalls.innerHTML = '';
 
-  if (currentDifficulty == 'easy') {
-
-    difficulty.innerText = 'Facil'
+  if (currentDifficulty === 'easy') {
+    difficulty.innerText = 'Facil';
     currentDifficulty = 'hard';
 
     for (let index = 1; index <= 12; index += 1) {
@@ -91,8 +89,7 @@ difficulty.addEventListener('click', function () {
       boardOfBalls.appendChild(newBall);
     }
   } else {
-
-    difficulty.innerText = 'Difícil'
+    difficulty.innerText = 'Difícil';
     currentDifficulty = 'easy';
 
     for (let index = 1; index <= 6; index += 1) {
@@ -106,12 +103,12 @@ difficulty.addEventListener('click', function () {
 
 function getTheColor(index) {
   allBalls[index].addEventListener('click', function () {
-    currentColor = allBalls[index].style.backgroundColor;
+    const currentColor = allBalls[index].style.backgroundColor;
   });
 }
 
 function loopForBalls() {
-  for (index = 0; index < allBalls.length; index += 1) {
+  for (let index = 0; index < allBalls.length; index += 1) {
     getTheColor(index);
   }
 }
