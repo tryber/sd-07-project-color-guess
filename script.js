@@ -1,7 +1,7 @@
 // Criando o score do jogo
 let points = 0;
 const score = document.getElementById('score');
-score.innerHTML = points;
+
 
 // Sorteia as cores
 const answer = document.getElementById('answer');
@@ -70,6 +70,8 @@ function returnNumberOfChild(child) {
 }
 
 function init() {
+  // Imprimindo o score
+  score.innerHTML = points;
   // Escreve o texto
   answer.innerText = 'Escolha uma cor';
 
