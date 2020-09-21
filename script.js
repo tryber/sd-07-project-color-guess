@@ -3,7 +3,7 @@ let points = 0;
 const score = document.getElementById('score');
 
 // Imprimindo o score
-score.innerHTML = points;
+// score.innerHTML = points;
 
 // Sorteia as cores
 const answer = document.getElementById('answer');
@@ -98,20 +98,20 @@ init();
 
 container.addEventListener('click', function (event) {
   // if (answer.innerText === 'Escolha uma cor') {
-    const selected = event.target;
+  const selected = event.target;
 
-    // Adiciona a borda de seleção
-    selected.classList.add('selected');
+  // Adiciona a borda de seleção
+  selected.classList.add('selected');
 
-    const indexSelected = returnNumberOfChild(selected);
+  const indexSelected = returnNumberOfChild(selected);
 
-    if (indexSelected === numberRaffledBall) {
-      points += 3;
-      score.innerText = points;
-      answer.innerText = 'Acertou!';
-    } else {
-      answer.innerText = 'Errou! Tente novamente';
-    }
+  if (indexSelected === numberRaffledBall) {
+    points += 3;
+    score.innerText += 3; // points;
+    answer.innerText = 'Acertou!';
+  } else {
+    answer.innerText = 'Errou! Tente novamente';
+  }
   //}
 });
 
