@@ -42,7 +42,7 @@ main {
   align-content: initial;
   background-color: var(--azul);
   display: grid;
-  grid-gap: 20px;
+  gap: 20px;
   grid-template-columns: repeat(3, 3fr);
   grid-template-rows: repeat(2, 2fr);
   justify-content: initial;
