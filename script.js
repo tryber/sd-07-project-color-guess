@@ -1,7 +1,7 @@
 const balls = document.querySelectorAll('.ball');
 const rgbColor = document.getElementById('rgb-color');
 const answer = document.getElementById('answer');
-let points = 0
+let points = 0;
 
 function generationRandomColorRGB() {
   const maxNumberRGB = 256;
@@ -25,8 +25,8 @@ function score(ballBackgroundColor) {
   if (rgbColor.innerText === ballBackgroundColor) {
     answer.innerText = 'Acertou!';
     points += 3;
-    const score = document.getElementById('score');
-    score.innerText = `Placar ${points}`
+    const scores = document.getElementById('score');
+    scores.innerText = `Placar ${points}`;
   } else answer.innerText = 'Errou! Tente novamente!';
 }
 
