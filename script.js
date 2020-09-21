@@ -1,17 +1,17 @@
 // Criando o score do jogo
-const sum = document.getElementById('sum');
-let score = 0;
-const textScore = document.getElementById('score');
+let points = 0;
+const score = document.getElementById('score');
+score.innerHTML = points;
 
 // Sorteia as cores
-let answer = document.getElementById('answer');
+const answer = document.getElementById('answer');
 let color = []; // assortedColors();
 
 // Sorteia a cor escolhida entre as 6 cores
 let numberRaffledBall = -1; // o intervalo de sorteio é de [0, 5] rndRGB(5);
 
 // imprime na tela o RGB sorteado
-let rgbColor = document.getElementById('rgb-color');
+const rgbColor = document.getElementById('rgb-color');
 
 const container = document.querySelector('.container');
 
@@ -74,7 +74,7 @@ function init() {
   answer.innerText = 'Escolha uma cor';
 
   // Remove a borda do item selecionado
-  let lastSelected = document.getElementsByClassName('selected');
+  const lastSelected = document.getElementsByClassName('selected');
   if (lastSelected.length !== 0) {
     lastSelected[0].classList.remove('selected');
   }
@@ -90,23 +90,22 @@ function init() {
 
   // imprime na tela o RGB sorteado
   rgbColor.innerText = color[numberRaffledBall];
-  console.log(numberRaffledBall);
 }
 
 init();
 
 container.addEventListener('click', function (event) {
   if (answer.innerText === 'Escolha uma cor') {
-    const selected = event.target
+    const selected = event.target;
 
     // Adiciona a borda de seleção
     selected.classList.add('selected');
 
     const indexSelected = returnNumberOfChild(selected);
 
-    if (indexSelected == numberRaffledBall) {
-      score += 3;
-      textScore.innerText = score;
+    if (indexSelected === numberRaffledBall) {
+      points += 3;
+      score.innerText = points;
       answer.innerText = 'Acertou!';
     } else {
       answer.innerText = 'Errou! Tente novamente';
