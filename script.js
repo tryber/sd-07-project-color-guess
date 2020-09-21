@@ -107,7 +107,7 @@ container.addEventListener('click', function (event) {
 
     if (indexSelected === numberRaffledBall) {
       points += 3;
-      score.innerText += 3; // points;
+      score.innerText = parseInt(score.innerText) + 3; // points;
       answer.innerText = 'Acertou!';
     } else {
       answer.innerText = 'Errou! Tente novamente';
