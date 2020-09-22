@@ -125,4 +125,5 @@ const resetGame = document.getElementById('reset-game');
 resetGame.addEventListener('click', function () {
   // score.innerHTML = points;
   init();
+  return (score.innerHTML = points);
 });
