@@ -72,8 +72,6 @@ function returnNumberOfChild(child) {
 }
 
 function init() {
-  // score.innerHTML = points;
-
   // Escreve o texto
   answer.innerText = 'Escolha uma cor';
 
@@ -102,7 +100,6 @@ container.addEventListener('click', function (event) {
   if (answer.innerText === 'Escolha uma cor') {
     const selected = event.target;
     if (selected.classList.contains('ball')) {
-
       // Adiciona a borda de seleção
       selected.classList.add('selected');
 
@@ -111,7 +108,7 @@ container.addEventListener('click', function (event) {
       if (indexSelected === numberRaffledBall) {
         points += 3;
         answer.innerText = 'Acertou!';
-        return (score.innerHTML = points);
+        score.innerHTML = points;
       } else {
         // score.innerHTML = points;
         answer.innerText = 'Errou! Tente novamente';
@@ -123,6 +120,6 @@ container.addEventListener('click', function (event) {
 const resetGame = document.getElementById('reset-game');
 
 resetGame.addEventListener('click', function () {
-  // score.innerHTML = points;
   init();
+  return (score.innerHTML = points);
 });
