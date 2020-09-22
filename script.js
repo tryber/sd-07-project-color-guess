@@ -99,7 +99,7 @@ function init() {
 init();
 
 container.addEventListener('click', function (event) {
-  // if (answer.innerText === 'Escolha uma cor') {
+  if (answer.innerText === 'Escolha uma cor') {
     const selected = event.target;
     if (selected.classList.contains('ball')) {
 
@@ -117,7 +117,7 @@ container.addEventListener('click', function (event) {
         answer.innerText = 'Errou! Tente novamente';
       }
     }
-  // }
+  }
 });
 
 const resetGame = document.getElementById('reset-game');
