@@ -122,4 +122,7 @@ container.addEventListener('click', function (event) {
 
 const resetGame = document.getElementById('reset-game');
 
-resetGame.addEventListener('click', init);
+resetGame.addEventListener('click', function () {
+  score.innerHTML = points;
+  init();
+});
