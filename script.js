@@ -72,6 +72,8 @@ function returnNumberOfChild(child) {
 }
 
 function init() {
+  score.innerHTML = points;
+
   // Escreve o texto
   answer.innerText = 'Escolha uma cor';
 
@@ -111,7 +113,7 @@ container.addEventListener('click', function (event) {
         score.innerHTML = points;
         answer.innerText = 'Acertou!';
       } else {
-        score.innerHTML = points;
+        // score.innerHTML = points;
         answer.innerText = 'Errou! Tente novamente';
       }
     }
