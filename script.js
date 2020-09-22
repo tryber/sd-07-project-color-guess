@@ -110,7 +110,6 @@ container.addEventListener('click', function (event) {
         answer.innerText = 'Acertou!';
         score.innerHTML = points;
       } else {
-        // score.innerHTML = points;
         answer.innerText = 'Errou! Tente novamente';
       }
     }
@@ -121,5 +120,4 @@ const resetGame = document.getElementById('reset-game');
 
 resetGame.addEventListener('click', function () {
   init();
-  return (score.innerHTML = points);
 });
