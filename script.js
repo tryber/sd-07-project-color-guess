@@ -110,11 +110,11 @@ container.addEventListener('click', function (event) {
 
       if (indexSelected === numberRaffledBall) {
         points += 3;
-        score.innerHTML = points;
-        return (answer.innerText = 'Acertou!');
+        answer.innerText = 'Acertou!';
+        return (score.innerHTML = points);
       } else {
         // score.innerHTML = points;
-        return (answer.innerText = 'Errou! Tente novamente');
+        answer.innerText = 'Errou! Tente novamente';
       }
     }
   }
@@ -125,5 +125,4 @@ const resetGame = document.getElementById('reset-game');
 resetGame.addEventListener('click', function () {
   // score.innerHTML = points;
   init();
-  return (score.innerHTML = points);
 });
