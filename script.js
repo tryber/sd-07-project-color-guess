@@ -72,6 +72,8 @@ function returnNumberOfChild(child) {
 }
 
 function init() {
+  score.innerHTML = points;
+
   // Escreve o texto
   answer.innerText = 'Escolha uma cor';
 
