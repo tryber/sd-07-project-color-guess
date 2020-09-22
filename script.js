@@ -99,19 +99,21 @@ init();
 container.addEventListener('click', function (event) {
   if (answer.innerText === 'Escolha uma cor') {
     const selected = event.target;
+    if (selected.classList.contains('ball')) {
 
-    // Adiciona a borda de seleção
-    selected.classList.add('selected');
+      // Adiciona a borda de seleção
+      selected.classList.add('selected');
 
-    const indexSelected = returnNumberOfChild(selected);
+      const indexSelected = returnNumberOfChild(selected);
 
-    if (indexSelected === numberRaffledBall) {
-      points += 3;
-      score.innerHTML = points;
-      answer.innerText = 'Acertou!';
-    } else {
-      // score.innerHTML = points;
-      answer.innerText = 'Errou! Tente novamente';
+      if (indexSelected === numberRaffledBall) {
+        points += 3;
+        score.innerHTML = points;
+        answer.innerText = 'Acertou!';
+      } else {
+        // score.innerHTML = points;
+        answer.innerText = 'Errou! Tente novamente';
+      }
     }
   }
 });
