@@ -110,7 +110,7 @@ container.addEventListener('click', function (event) {
       score.innerHTML = points;
       answer.innerText = 'Acertou!';
     } else {
-      score.innerHTML = points;
+      // score.innerHTML = points;
       answer.innerText = 'Errou! Tente novamente';
     }
   }
