@@ -59,7 +59,10 @@ function message() {
   // console.log(balls[0]);
 }
 
-function newScorePoints () {
+function newScorePoints() {
+  const scorePoints = document.querySelector('#score');
+  const answer = document.querySelector('#answer');
+  
   if (answer.innerText === 'Acertou!') {
     count += 3;
     scorePoints.innerText = `Placar: ${count}`;
@@ -69,7 +72,6 @@ function newScorePoints () {
 function score() {
   const scorePoints = document.querySelector('#score');
   const balls = document.querySelectorAll('.ball');
-  const answer = document.querySelector('#answer');
 
   scorePoints.innerText = `Placar: ${count}`;
 
