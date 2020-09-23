@@ -27,14 +27,14 @@ function myQuestion() {
   let randomNumber1 = Math.round(Math.random() * 255);
   let randomNumber2 = Math.round(Math.random() * 255);
   let randomNumber3 = Math.round(Math.random() * 255);
-  
+
   let numberQuestion = `(${randomNumber1}, ${randomNumber2}, ${randomNumber3})`;
   question.innerText = numberQuestion;
 
   const balls = document.querySelectorAll(".ball");
-  let randomNumber = Math.round(Math.random()*5);
+  let randomNumber = Math.round(Math.random() * 5);
 
-  balls[randomNumber].style.backgroundColor = "rgb"+ question.innerHTML;
+  balls[randomNumber].style.backgroundColor = "rgb" + question.innerHTML;
   console.log(randomNumber);
 }
 
@@ -44,7 +44,7 @@ function message() {
   const question = document.querySelector("#rgb-color");
   answer.innerText = "Escolha uma cor";
 
-  for(let i = 0; i < balls.length; i += 1) {
+  for (let i = 0; i < balls.length; i += 1) {
     balls[i].addEventListener("click", function (event) {
       let divBall = event.target;
       if (divBall.style.backgroundColor == `rgb${question.innerText}`) {
@@ -52,15 +52,29 @@ function message() {
       } else {
         answer.innerText = "Errou! Tente novamente!";
       }
-      console.log(divBall);
-    })
+      // console.log(divBall);
+    });
   }
   // console.log(balls[0]);
 }
 
-window.onload = function () {
+function executeAll () {
   createBalls();
   colorRandomBalls();
   myQuestion();
   message();
+}
+
+function buttonReset() {
+  const buttonReset = document.querySelector("#reset-game");
+  buttonReset.addEventListener("click", function () {
+    colorRandomBalls();
+    myQuestion();
+    message();
+  });
+}
+
+window.onload = function () {
+  executeAll();
+  buttonReset();
 };
