@@ -2,16 +2,16 @@ const numberColors = 6;
 let count = 0;
 
 function createBalls() {
-  const colorsCircle = document.querySelector("#color-palete");
+  const colorsCircle = document.querySelector('#color-palete');
   for (let i = 0; i < numberColors; i += 1) {
-    const div = document.createElement("div");
-    div.classList.add("ball");
+    const div = document.createElement('div');
+    div.classList.add('ball');
     colorsCircle.appendChild(div);
   }
 }
 
 function colorRandomBalls() {
-  const balls = document.querySelectorAll(".ball");
+  const balls = document.querySelectorAll('.ball');
 
   for (let i = 0; i < numberColors; i += 1) {
     const randomNumber = Math.round(Math.random() * 1000000);
@@ -23,7 +23,7 @@ function colorRandomBalls() {
 }
 
 function myQuestion() {
-  const question = document.querySelector("#rgb-color");
+  const question = document.querySelector('#rgb-color');
 
   const randomNumber1 = Math.round(Math.random() * 255);
   const randomNumber2 = Math.round(Math.random() * 255);
@@ -32,7 +32,7 @@ function myQuestion() {
   const numberQuestion = `(${randomNumber1}, ${randomNumber2}, ${randomNumber3})`;
   question.innerText = numberQuestion;
 
-  const balls = document.querySelectorAll(".ball");
+  const balls = document.querySelectorAll('.ball');
   const randomNumber = Math.round(Math.random() * 5);
 
   balls[randomNumber].style.backgroundColor = `rgb${question.innerHTML}`;
@@ -40,18 +40,18 @@ function myQuestion() {
 }
 
 function message() {
-  const answer = document.querySelector("#answer");
-  const balls = document.querySelectorAll(".ball");
-  const question = document.querySelector("#rgb-color");
-  answer.innerText = "Escolha uma cor";
+  const answer = document.querySelector('#answer');
+  const balls = document.querySelectorAll('.ball');
+  const question = document.querySelector('#rgb-color');
+  answer.innerText = 'Escolha uma cor';
 
   for (let i = 0; i < balls.length; i += 1) {
-    balls[i].addEventListener("click", function (event) {
+    balls[i].addEventListener('click', function (event) {
       const divBall = event.target;
       if (divBall.style.backgroundColor === `rgb${question.innerText}`) {
-        answer.innerText = "Acertou!";
+        answer.innerText = 'Acertou!';
       } else {
-        answer.innerText = "Errou! Tente novamente!";
+        answer.innerText = 'Errou! Tente novamente!';
       }
       // console.log(divBall);
     });
@@ -60,28 +60,28 @@ function message() {
 }
 
 function newScorePoints() {
-  const scorePoints = document.querySelector("#score");
-  const answer = document.querySelector("#answer");
-  if (answer.innerText === "Acertou!") {
+  const scorePoints = document.querySelector('#score');
+  const answer = document.querySelector('#answer');
+  if (answer.innerText === 'Acertou!') {
     count += 3;
     scorePoints.innerText = `Placar: ${count}`;
   }
 }
 
 function score() {
-  const scorePoints = document.querySelector("#score");
-  const balls = document.querySelectorAll(".ball");
+  const scorePoints = document.querySelector('#score');
+  const balls = document.querySelectorAll('.ball');
 
   scorePoints.innerText = `Placar: ${count}`;
 
   for (let i = 0; i < balls.length; i += 1) {
-    balls[i].addEventListener("click", newScorePoints);
+    balls[i].addEventListener('click', newScorePoints);
   }
 }
 
 function buttonReset() {
-  const myButtonReset = document.querySelector("#reset-game");
-  myButtonReset.addEventListener("click", function () {
+  const myButtonReset = document.querySelector('#reset-game');
+  myButtonReset.addEventListener('click', function () {
     colorRandomBalls();
     myQuestion();
     message();
