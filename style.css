@@ -4,13 +4,9 @@
 }
 
 .ball {
-  width: 50px;
+  border: 1px solid black;
+  border-radius: 50%;
   height: 50px;
   margin: 10px;
-  border-radius: 50%;
-  border: 1px solid black;
+  width: 50px;
 }
-/* 
-body {
-  background-color: rgb(180,109,22);
-} */
