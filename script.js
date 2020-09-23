@@ -1,4 +1,5 @@
 let numberColors = 6;
+let count = 0;
 
 function createBalls() {
   const colorsCircle = document.querySelector("#color-palete");
@@ -58,11 +59,30 @@ function message() {
   // console.log(balls[0]);
 }
 
-function executeAll () {
+function score() {
+  const scorePoints = document.querySelector("#score");
+  const balls = document.querySelectorAll(".ball");
+  const answer = document.querySelector("#answer");
+
+  scorePoints.innerText = `Placar: ${count}`;
+
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].addEventListener("click", function () {
+      if (answer.innerText == "Acertou!") {
+        count += 3;
+        scorePoints.innerText = `Placar: ${count}`;
+      }
+    });
+  }
+}
+
+function executeAll() {
   createBalls();
   colorRandomBalls();
   myQuestion();
   message();
+  score();
+  buttonReset();
 }
 
 function buttonReset() {
@@ -76,5 +96,4 @@ function buttonReset() {
 
 window.onload = function () {
   executeAll();
-  buttonReset();
 };
