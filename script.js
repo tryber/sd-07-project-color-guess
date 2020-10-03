@@ -5,9 +5,20 @@ const resetButton = document.getElementById('reset-game');
 const resposta = document.getElementById('answer');
 let guessRGB = [];
 
+const testaClique = (item) => {
+  const propriedadeCSS = window.getComputedStyle(item, null).getPropertyValue('background-color');
+  const rgb = propriedadeCSS.slice(3, propriedadeCSS.length);
+  if (rgb === rgbTip.innerText) {
+    resposta.innerText = 'Acertou!';
+  } else {
+    resposta.innerText = 'Errou! Tente novamente!';
+  }
+  // console.log(rgb);
+};
+
 document.querySelectorAll('.ball').forEach((item) => {
   item.addEventListener('click', () => {
-    alert('Clique');
+    testaClique(item);
   });
 });
 
@@ -15,7 +26,7 @@ const randonRGB = () => {
   const corR = parseInt(((Math.random()) * 256), 0);
   const corG = parseInt(((Math.random()) * 256), 0);
   const corB = parseInt(((Math.random()) * 256), 0);
-  guessRGB.push(`(${corR},${corG},${corB})`);
+  guessRGB.push(`(${corR}, ${corG}, ${corB})`);
   return `rgb(${corR},${corG},${corB})`;
 };
 
