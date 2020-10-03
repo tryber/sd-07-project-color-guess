@@ -22,7 +22,6 @@ const testaClique = (item) => {
     }
     placarObjeto.innerText = `Placar: ${placar}`;
   }
-  // console.log(rgb);
 };
 
 document.querySelectorAll('.ball').forEach((item) => {
@@ -46,7 +45,6 @@ const colorBalls = () => {
   }
   rgbTip.innerText = guessRGB[parseInt(((Math.random()) * 6), 0)];
   resposta.innerText = 'Escolha uma cor';
-  // console.log(guessRGB);
 };
 
 resetButton.addEventListener('click', colorBalls);
