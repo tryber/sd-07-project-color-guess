@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;  
+}
+
+body {
+  font: 600 18px Nunito, sans-serif;
+  font-style: rgb(0, 0, 0, 0.7);
+  background-color: rgb(0, 0, 0, 0.88);
+}
+
+button {
+  border-style: hidden ;
+  border-color: transparent;
+  font: 600 16px Nunito, sans-serif;
+}
+
+top-head {
+text-align: center;
+}
+
+header {
+  text-align: center;
+  margin: 40px;
+}
+
+section {
+  background-color: white;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  text-align: center;
+  width: 600px;
+  height: 645px;
+  margin-left: 28.1%;
+}
+
+#answer {
+margin-top: 30px;
+text-align: center;
+}
+
+.button {
+width: 120px;
+height: 35px;
+cursor: pointer;
+background-color: lightblue;
+border-radius: 8%;
+border-style: hidden ;
+margin: 5px;
+border-color: lightskyblue;
+outline-style: none;
+}
+
+.button:hover {
+background-color: lightskyblue;
+border-radius: 8%;
+border-style: hidden ;
+width: 120px;
+height: 32px;
+transition: 0.3s;
+border-color: lightblue;
+outline-style: none;
+}
+
+#reset-game {
+  border-color: lightblue;
+}
+
+.balls-choise {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  align-self: center;
+}
+
+.button-choise {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  align-self: center;
+}
+
+.ball {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  margin: 4px; 
+  cursor: pointer;
+}
+
+/* #ball1 {
+  background-color: white;
+}
+
+#ball2 {
+  background-color: white;
+}
+
+#ball3 {
+  background-color: white;
+}
+
+#ball4 {
+  background-color: white;
+}
+
+#ball5 {
+  background-color: white;
+}
+
+#ball6 {
+  background-color: white;
+}
+  */
