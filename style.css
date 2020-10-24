@@ -1,0 +1,80 @@
+body {
+  background-color: rgba(0, 0, 0, 0.88);
+  font: 600 18px Nunito, sans-serif;
+}
+
+button {
+  border-color: transparent;
+  border-style: hidden;
+  font: 600 16px Nunito, sans-serif;
+}
+
+header {
+  margin: 40px;
+  text-align: center;
+}
+
+section {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 645px;
+  margin-left: 28.1%;
+  position: absolute;
+  text-align: center;
+  width: 600px;
+}
+
+.top-head {
+  text-align: center;
+}
+
+.answer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.button {
+  background-color: lightblue;
+  border-color: lightskyblue;
+  border-radius: 8%;
+  border-style: hidden;
+  cursor: pointer;
+  height: 35px;
+  margin: 5px;
+  outline-style: none;
+  width: 120px;
+}
+
+.button:hover {
+  background-color: lightskyblue;
+  border-color: lightblue;
+  border-radius: 8%;
+  border-style: hidden;
+  height: 32px;
+  outline-style: none;
+  transition: 0.3s;
+  width: 120px;
+}
+
+.balls-choise {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.button-choise {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.ball {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 70px;
+  margin: 4px;
+  width: 70px;
+}
