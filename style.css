@@ -1,0 +1,20 @@
+.ball {
+  border: solid 2px black;
+  border-radius: 50%;
+  display: inline-block;
+  height: 50px;
+  list-style: none;
+  width: 50px;
+}
+
+header {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 17px;
+}
+
+p {
+  font-size: 15px;
+}
