@@ -1,4 +1,3 @@
-
 const balls = document.querySelectorAll('.ball');
 const clearButton = document.getElementById('reset-game');
 const rgbColor = document.getElementById('rgb-color');
